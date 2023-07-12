@@ -1,0 +1,163 @@
+.container {
+  max-width: 1517px;
+  margin:  0 auto;
+  padding: 0 100px 0  100px !important;
+}
+
+
+.coursecard {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 56px;
+}
+
+.coursecard p{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #20AFFF;
+  margin-bottom: 16px !important;
+}
+
+.coursecard h1 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 27px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  color: #000000;
+}
+
+.coursecards {
+  position: relative;
+  margin: 15px !important;
+  padding-bottom: 15px;
+  height: 250px;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 106px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 15px rgba(112, 144, 176, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+}
+
+.card1 {
+  background-image: url('https://artkhizina.ru/img/library/10_khitrostey_master_klassa_3.jpg') !important;
+  background-size: cover;
+}
+
+.card2 {
+  background-image: url('https://rustest.spb.ru/wp-content/uploads/2023/04/bespilotnik-scaled.jpg') !important;
+  background-size: cover;
+}
+
+.card3 {
+  background-image: url('https://aupair.co.id/wp-content/uploads/2022/06/grey-marble-column-details-building-scaled.jpg') !important;
+  background-size: cover;
+}
+
+.card4 {
+  background-image: url('https://vmo24.ru/files/news/news_93458.jpg') !important;
+  background-size: cover;
+}
+
+.card5 {
+  background-image: url('https://cdn.shopify.com/s/files/1/0299/2645/7484/files/mugs-banner.png?v=1613531906') !important;
+  background-size: cover;
+}
+.card6 {
+  background-image: url('https://hotelbrut.ru/upload/iblock/16d/16dac2619329c99998d2ed281e0d28c4.jpg') !important;
+  background-size: cover;
+}
+.card7 {
+  background-image: url('https://i.pinimg.com/originals/04/3d/30/043d30cc419aaff92cc99cba186b5351.jpg') !important;
+  background-size: cover;
+}
+
+.courseText {
+  height: 106px;
+  /* position: absolute; */
+  display: flex;
+  justify-content: space-around;
+  bottom: 15px;
+  border-radius: 14px;
+  background: #FFF;
+  box-shadow: 0px 4px 20px 0px rgba(112, 144, 176, 0.25);
+  backdrop-filter: blur(5px);
+  margin: 0 15px;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.courseText img{
+  height: 20px !important;
+  width: 20px;
+}
+
+.coursecards h1 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 20px;
+  color: #012245;
+  margin: 0;
+}
+
+.coursecardoption {
+  display: flex;
+  align-items: start;
+  margin-top: 8px;
+  position: relative;
+}
+
+.coursecardoption p{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  color: #3E3E3E;
+  margin: 0;
+  width: 80%;
+}
+
+
+@media (max-width: 1025px) {
+  .coursecards {
+    box-sizing: border-box !important;
+  }
+  .courseText {
+    width: 100%;
+  }
+  .container {
+    padding: 0 3.1rem !important;
+  }
+}
+
+
+@media (max-width: 628px) {
+  .coursecards {
+    min-width: 330px;
+    min-height: 106px !important; 
+  }
+  .courseText {
+    min-width: 295px;
+  }
+}

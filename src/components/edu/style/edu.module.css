@@ -1,0 +1,86 @@
+
+
+.eduimg {
+  position: relative;
+  top: -114px;
+  max-width: 1617px;
+  margin: 0 auto;
+  height: 437px;
+  background-image: url('../../../assets/edu/img1.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.edutext {
+  position: relative;
+  max-width: 1617px;
+  margin: 0px auto;
+  padding: 0 100px 50px 100px;
+  display: flex;
+}
+
+.edutextleft {
+  width: 60%;
+  border-right: 1px solid rgba(128, 128, 128, 0.5);
+  padding-right: 60px;
+}
+
+.edutextleft a{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3D3D3D;
+  margin-bottom: 50px !important;
+}
+
+.edutextleft .ant-collapse-header {
+  border: 1px solid rgba(128, 128, 128, 0.5) !important; 
+  background-color: red;
+}
+
+.edutextright {
+  width: 37%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 60px;
+}
+
+.edutextright h2 {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #3D3D3D;
+}
+
+
+@media (max-width: 1024px) {
+  .eduimg{
+    height: 25vh;
+    background-size: 100% auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .eduimg{
+    height: 30vh;
+  }
+
+  .edutext{
+    padding: 0 2rem 50px 2rem;
+  }
+
+  .edutextleft{
+    width: 100%;
+    border: none;
+  }
+
+  .edutextright{
+    display: none;
+  }
+}
+
+

@@ -1,0 +1,143 @@
+.homepage {
+  position: relative;
+  max-width: 1520px;
+  height: 713px; 
+  display: flex;
+  /* padding: 250px 0 125px 0 ; */
+  margin:  0 auto;
+  background-image: url('../../../assets/homeheader/header.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  top: -117px;
+}
+
+.container {
+  max-width: 1517px;
+  margin:  0 auto;
+  padding: 0 100px 0  40px !important;
+}
+
+.navigat {
+  display: flex;
+  position: sticky;
+  top: 250px;
+  left: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px !important;
+  background: #FFFFFF;
+  backdrop-filter: blur(2px);
+  border-radius: 30px;
+  height: 170px;
+  z-index: 211 !important;
+}
+
+.headertext {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  display: flex;
+  color: #FFFFFF;
+}
+
+.headertext h2{
+  font-size: 32px;
+}
+
+.headertext h1{
+  margin-bottom: 32px;
+  line-height: 65px;
+}
+
+.headertext p {
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 24px;
+  margin: 44px 0 !important;
+} 
+
+.headertext button {
+  width: 103px;
+  height: 40px;
+  background: #20AFFF;
+  border-radius: 20px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.headertext button:hover {
+  color: #20AFFF !important;
+  border-color: #20AFFF !important;
+  background-color: #FFFFFF;
+}
+
+@media (max-width: 1026px) {
+  .homepage {
+    width: 100%;
+    height: 75vh !important;
+    background-size: cover !important;
+    /* overflow: hidden; */
+    /* padding: 150px 0 150px 0; */
+    background-position: left;
+    top: 0;
+  }
+  .homepage h2{
+    font-size: 30px;
+  }
+  .homepage p{
+    margin: 18px 0 !important;
+  }
+
+  .headertext {
+    width: 100%;
+  }
+
+  .navigat {
+    display: none;
+  }
+
+  .container {
+    padding: 0 3.1rem !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .homepage {
+    height: 60vh !important;
+  }
+  .headertext {
+    width: 70%;
+  }
+}
+
+@media (max-width: 670px) {
+  .homepage{
+    height: 70vh !important;
+    background-size: cover;
+    padding: 0 0 80px 0 !important;
+  }
+
+  .headertext {
+    width: 100%;
+  }
+
+  .headertext h1{
+    font-size: 56px;
+  }
+  
+}

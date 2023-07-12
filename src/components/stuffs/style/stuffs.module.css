@@ -1,0 +1,101 @@
+.container {
+  max-width: 1517px;
+  margin: 0 auto;
+  padding: 50px 100px;
+}
+
+.stuffs {
+  margin-bottom: 80px !important;
+}
+.title h1 {
+  color: #000;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  margin: 30px 0 !important;
+}
+
+.stuffCard {
+  padding: 15px 25px 15px 0;
+}
+
+
+
+.stuffCard h1 {
+  color: #000;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  margin: 0;
+  margin-top: 17px !important;
+}
+
+.stuffCard p {
+  color: #000;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 10px 0 !important;
+}
+
+.stuffCard a {
+  color: #404040;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;   
+  }
+
+  .stuffCard {
+    display: flex;
+    width: 100%;
+    margin: 0 auto !important;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .stuffCardText {
+    text-align: center;
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .title h1 {
+    font-size: 25px !important;
+    margin: 15px 0 !important;
+  }
+
+  .stuffs {
+    margin-bottom: 80px !important;
+  }
+}

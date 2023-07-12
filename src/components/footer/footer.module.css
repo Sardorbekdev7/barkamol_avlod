@@ -1,0 +1,184 @@
+.footer {
+  background: #012245;
+  padding: 60px 100px;
+  max-width: 1517px;
+  margin: 0 auto;
+  background-image: url('../../../public/footer/union.svg');
+  background-repeat: no-repeat !important;
+  background-position: left;
+}
+
+.footBrand {
+  margin-bottom: 40px;
+  width: 58px;
+}
+
+.footLeft {
+  width: 100%;
+  border-right: 1px solid #FFFFFF;
+}
+
+.footLeft span{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 115%;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.footLeft a {
+  text-decoration: none;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  display: flex;
+  align-items: center !important;
+  color: #FFFFFF;
+  margin-top: 27px;
+}
+
+.footLeft a img {
+  margin-right: 10px;
+}
+
+.footLeft p {
+  margin: 0;
+}
+
+.footRight {
+  padding-left: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.footRightForm {
+  margin: 50px 0px;
+  max-width: 770px;
+  height: 78px;  
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+.footRightForm form {
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0px 15px;
+}
+
+.footRightForm input {
+  height: 48px !important;
+  max-width: 280px;
+  margin-right: 10px;
+  border: 1px solid #012245 !important;
+  border-radius: 8px;
+  margin-bottom: 0 !important;
+}
+
+.footRightForm button {
+  width: 150px;
+  height: 48px;
+  background: #20AFFF;
+  border-radius: 24px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  
+  font-size: 14px;
+  line-height: 14px;
+  color: #FFFFFF;
+}
+
+.footRightForm button:hover {
+  color: #ffffff !important;
+  outline: none !important;
+}
+
+.footRight li {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #FFFFFF;
+  text-decoration: none;
+  list-style: none;
+  margin-bottom: 8px;
+  opacity: 0.8;
+}
+
+.footRight a{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+.listactive {
+    font-weight: 600 !important;
+  font-size: 20px !important;
+  margin-bottom: 20px !important;
+  margin-right: 20px;
+  opacity: 1 !important;
+}
+
+
+@media (max-width: 1024px) {
+  .footer {
+    padding: 60px 2rem;
+  }
+  .footRight {
+    margin: 0;
+    padding: 0;
+  }
+  .footLeft {
+    border: none;
+    margin-right: 20px !important;
+  }
+  .footLeftItems ul{
+    margin-right: 20px;
+  }  
+  .footLeftImg {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+ 
+
+  .footRightForm {
+    height: auto !important;
+  }
+  .footRightForm input {
+    max-width: 100% !important;
+    margin: 10px;
+  }
+
+  .footRightForm button {
+    margin: 10px;
+  }
+
+  .listactive {
+    display: block !important;
+  }
+
+  .footRightForm form{
+
+    flex-direction: column !important;
+  }
+
+  .footRight ul{
+    padding: 0;
+  }
+}

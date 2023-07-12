@@ -1,0 +1,74 @@
+.container {
+  max-width: 1517px;
+  margin: 0 auto;
+  padding: 50px 100px;
+}
+
+.gallery {
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.galleryCard {
+  margin: 30px 12px !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.galleryText {
+  padding: 14px;
+}
+
+.galleryText h1{
+  color: #000;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.galleryText p {
+  color: #3E3E3E;
+  font-family: Poppins;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+}
+
+
+
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;   
+  }
+  
+}
+
+@media (max-width: 768px) {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
