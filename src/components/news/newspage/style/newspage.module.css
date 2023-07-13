@@ -188,6 +188,9 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1.2rem;
+  }
   .newslink {
     flex-direction: column;
   }

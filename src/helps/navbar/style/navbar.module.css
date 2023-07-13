@@ -80,3 +80,8 @@
   }
 }
 
+@media (max-width: 628px) {
+  .nav {
+    padding: 0 1.4rem !important;
+  }
+}

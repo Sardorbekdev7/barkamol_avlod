@@ -10,7 +10,7 @@ import { getData } from '../../service/api.service'
 import { Link } from 'react-router-dom'
 import Links from '../news/newspage/Links'
 
-const Gallery = ({ titles }) => {
+const Gallery = () => {
   const {photos, setPhotos, photo_id, setPhotoId} = useAuthStore()
 
   const getPhotos = () => {
@@ -30,10 +30,10 @@ const Gallery = ({ titles }) => {
       <div className={style.gallery}>
         <div style={{display: 'flex'}}>
           <p style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}}>Axborot xizmati {'>'}</p>
-          <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'/axborot-xizmati/fotogalereya/'}>{titles}</Link>
+          <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'/axborot-xizmati/fotogalereya/'}>Fotogalereya</Link>
         </div>
         <div>
-          <h1>{titles}</h1>
+          <h1>Fotogalereya</h1>
           <div>
             <Row>
               {photos.map((item, key)=> (

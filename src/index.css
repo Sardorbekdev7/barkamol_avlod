@@ -93,3 +93,7 @@ a{
 .ant-drawer-content-wrapper {
   z-index: 12341211 !important;
 }
+
+.react-multi-carousel-list button {
+  z-index: 5 !important;
+}

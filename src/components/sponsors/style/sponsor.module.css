@@ -59,6 +59,15 @@
 
 @media (max-width: 1024px) {
   .container {
-    padding: 0 3.1rem !important;
+    padding: 0 2rem !important;
+  }
+}
+
+@media (max-width: 628px) {
+  .sponsorcard h1{
+    font-size: 25px;
+  }
+  .container {
+    padding: 0 1.2rem !important;
   }
 }

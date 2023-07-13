@@ -44,6 +44,7 @@
   margin: 15px !important;
   padding-bottom: 15px;
   height: 250px;
+  box-sizing: border-box;
   /* width: 100%; */
   display: flex;
   flex-direction: column;
@@ -99,9 +100,13 @@
   box-shadow: 0px 4px 20px 0px rgba(112, 144, 176, 0.25);
   backdrop-filter: blur(5px);
   margin: 0 15px;
-  padding: 15px;
+  padding: 15px !important;
   overflow: hidden;
+  width: auto;
+  box-sizing: border-box !important;
 }
+
+
 
 .courseText img{
   height: 20px !important;
@@ -135,7 +140,6 @@
   align-items: center;
   color: #3E3E3E;
   margin: 0;
-  width: 80%;
 }
 
 
@@ -143,9 +147,7 @@
   .coursecards {
     box-sizing: border-box !important;
   }
-  .courseText {
-    width: 100%;
-  }
+  
   .container {
     padding: 0 3.1rem !important;
   }
@@ -154,10 +156,23 @@
 
 @media (max-width: 628px) {
   .coursecards {
-    min-width: 330px;
     min-height: 106px !important; 
+    margin: 10px 0;
   }
-  .courseText {
-    min-width: 295px;
+
+
+  .coursecard {
+    width: 100% !important;
+  }
+
+  .coursecard h1 {
+    font-size: 25px;
+  }
+
+  .courseText h1{
+    font-size: 15px;
+  }
+  .container {
+    padding: 0 1.2rem !important;
   }
 }

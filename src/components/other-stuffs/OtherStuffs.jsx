@@ -7,11 +7,11 @@ import { getData } from '../../service/api.service'
 import noimage from '../../assets/noimage.png'
 
 const OtherStuffs = () => {
-  const {otherStuffs, setOtherStuffs} = useAuthStore()
+  const {stuffLeader, setStuffLeader} = useAuthStore()
 
   const getStuffLeader = () => {
-    getData('sliders').then(res => {
-      setOtherStuffs(res.data)
+    getData('leaders').then(res => {
+      setStuffLeader(res.data)
       console.log(res.data)
     })
   }
@@ -19,6 +19,14 @@ const OtherStuffs = () => {
   useEffect(() => {
     getStuffLeader()
   }, []);
+
+  const boshqa = []
+
+  stuffLeader.map((item) => {
+    if (item.type == 'Boshqa xodimlar') {
+        boshqa.push(item)
+    }
+  })
   
   return (
     <div className={style.container}>
@@ -33,7 +41,7 @@ const OtherStuffs = () => {
           </div>
           <div>
             <Row>
-              {otherStuffs.map((item, key) => (
+              {boshqa.map((item, key) => (
                 <Col style={{margin: '0 auto'}} key={key} lg={6} md={12} sm={24} >
                   <div className={style.stuffCard}>
                     {item.image == null ? <img src={noimage} alt='' style={{width: '250px', height: '333px'}}/> : <img src={item.image} alt='' style={{width: '250px', height: '333px'}}/>}

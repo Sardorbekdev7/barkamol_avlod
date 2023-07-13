@@ -23,10 +23,6 @@ const News = () => {
   }, []);
   
 
-
-  
-
-
   return (
     <div className={style.container} style={{
       marginTop: '90px'

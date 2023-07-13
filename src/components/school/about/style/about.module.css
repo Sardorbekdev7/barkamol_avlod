@@ -74,4 +74,7 @@
   .abouttext h1{
     font-size: 25px;
   }
+  .about {
+    padding: 0 1.2rem !important;
+  }
 }

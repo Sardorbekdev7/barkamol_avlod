@@ -43,7 +43,7 @@ const Photos = () => {
         <div className={style.photos}>
             <div style={{display: 'flex'}}>
               <p style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}}>Axborot xizmati {'>'}</p>
-              <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'/axborot-xizmati/fotogalereya/'}></Link>
+              <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'/axborot-xizmati/fotogalereya/'}>Fotogalereya</Link>
             </div>
             <div>
               <h1>{photo.name_uz}</h1>

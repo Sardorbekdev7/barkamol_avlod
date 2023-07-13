@@ -74,6 +74,10 @@
     padding: 0 2rem;   
   }
 
+  .stuffs {
+    margin-top: 40px;
+  }
+
   .stuffCard {
     display: flex;
     width: 100%;
@@ -93,6 +97,10 @@
   .title h1 {
     font-size: 25px !important;
     margin: 15px 0 !important;
+  }
+
+  .container {
+    padding: 0 1.2rem;   
   }
 
   .stuffs {

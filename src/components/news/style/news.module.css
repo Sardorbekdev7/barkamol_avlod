@@ -111,3 +111,12 @@
     padding: 0 3.1rem !important;
   }
 }
+
+@media (max-width: 628px) {
+  .newscard h1 {
+    font-size: 25px;
+  }
+  .container {
+    padding: 0 1.2rem !important;
+  }
+}

@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 70px;
+  
 }
 
 .newspage {
@@ -186,6 +187,9 @@
   .newspage {
     width: 100%;
   }
+  .newspages {
+    margin-top: 40px;
+  }
 
   .othernews {
     display: none;
@@ -193,6 +197,9 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;   
+  }
   .newslink {
     flex-direction: column;
   }

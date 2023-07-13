@@ -14,7 +14,7 @@ const Bosses = () => {
   const { leaders, setLeaders } = useAuthStore()
 
   const getLeaders = () => {
-    getData('leaders').then(res => {
+    getData('course_owners').then(res => {
       setLeaders(res.data)
       console.log(leaders);
     })

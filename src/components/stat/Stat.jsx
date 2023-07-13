@@ -1,5 +1,3 @@
-import React from 'react'
-import { Container } from 'react-bootstrap'
 import { Col, Row } from 'antd'
 
 import img1 from '../../assets/stat/img1.svg'
@@ -16,21 +14,25 @@ const Stat = () => {
         <Row>
           <Col lg={6} md={12} sm={24}>
             <div className={style.statcard}>
-              <div className={style.statcardimg}>
-                <img src={img1} alt='' />
+              <div className={style.statimg}>
+                <div>
+                  <img src={img1} alt="" />
+                </div>
               </div>
-              <div className={style.statcardtext}>
+              <div className={style.stattext}>
                 <h1>375</h1>
-                <p>Toshkent BABM ga jalb <br />  qilingan o’quvchilar soni</p>
+                <p>Toshkent BABM ga jalb qilingan o’quvchilar soni</p>
               </div>
             </div>
           </Col>
           <Col lg={6} md={12} sm={24}>
             <div className={style.statcard}>
-              <div className={style.statcardimg}>
-                <img src={img2} alt='' />
+              <div className={style.statimg}>
+                <div>
+                  <img src={img2} alt="" />
+                </div>
               </div>
-              <div className={style.statcardtext}>
+              <div className={style.stattext}>
                 <h1>3.2%</h1>
                 <p>Maktabi o’quvchilari soniga nisbati</p>
               </div>
@@ -38,10 +40,12 @@ const Stat = () => {
           </Col>
           <Col lg={6} md={12} sm={24}>
             <div className={style.statcard}>
-              <div className={style.statcardimg}>
-                <img src={img3} alt='' />
+              <div className={style.statimg}>
+                <div>
+                  <img src={img3} alt="" />
+                </div>
               </div>
-              <div className={style.statcardtext}>
+              <div className={style.stattext}>
                 <h1>35</h1>
                 <p>Toshkent BABM dagi xodimlar soni</p>
               </div>
@@ -49,10 +53,12 @@ const Stat = () => {
           </Col>
           <Col lg={6} md={12} sm={24}>
             <div className={style.statcard}>
-              <div className={style.statcardimg}>
-                <img src={img4} alt='' />
+              <div className={style.statimg}>
+                <div>
+                  <img src={img4} alt="" />
+                </div>
               </div>
-              <div className={style.statcardtext}>
+              <div className={style.stattext}>
                 <h1>55+</h1>
                 <p>Toshkent BABM dagi to’garaklar soni</p>
               </div>

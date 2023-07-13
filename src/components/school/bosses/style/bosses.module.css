@@ -148,4 +148,7 @@
   .boss {
     margin: 0;
   }
+  .bosses {
+    padding: 0 1.2rem !important;
+  }
 }

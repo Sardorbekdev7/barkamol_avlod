@@ -41,31 +41,16 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media (max-width: 1024px) {
   .container {
     padding: 0 2rem;   
   }
-
+  
   .photos {
     width: 100%;
     border: none;
   }
-
+  
   .otherPhotos {
     display: none;
   }
@@ -74,3 +59,25 @@
     width: 100%;
   }
 }
+
+
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.2rem;   
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

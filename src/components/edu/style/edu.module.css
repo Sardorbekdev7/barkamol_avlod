@@ -2,7 +2,7 @@
 
 .eduimg {
   position: relative;
-  top: -114px;
+  top: -116px;
   max-width: 1617px;
   margin: 0 auto;
   height: 437px;
@@ -61,12 +61,15 @@
   .eduimg{
     height: 25vh;
     background-size: 100% auto;
+    top: -50px;
   }
 }
 
 @media (max-width: 768px) {
   .eduimg{
     height: 30vh;
+    background-size: cover;
+    top: -50px;
   }
 
   .edutext{

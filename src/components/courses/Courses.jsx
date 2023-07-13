@@ -98,7 +98,7 @@ const Courses = () => {
             </div>
           </Link>
         </Col>
-        <Col lg={6} md={12} sm={24}>
+        <Col lg={6} md={12} sm={24} style={{width: '100%'}}>
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card6}`}>
               <div className={style.courseText}>
@@ -117,13 +117,13 @@ const Courses = () => {
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card7}`}>
               <div className={style.courseText}>
-                <div>
+                <div className={style.courseText1}>
                 <h1>Xorijiy Tillar</h1>
                 <div className={style.coursecardoption}>
-                  <p>Ushbu yo‘nalishida 14 turdagi to‘garak mavjud</p> 
+                <p>Ushbu yo‘nalishida 14 turdagi to‘garak mavjud</p> 
                 </div>
                 </div>
-                  <img src={xorij} alt=''/>
+                <img src={xorij} alt=''/>
               </div>
             </div>
           </Link>

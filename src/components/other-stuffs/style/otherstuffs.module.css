@@ -83,6 +83,10 @@
     justify-content: center;
   }
 
+  .stuffs {
+    margin-top: 40px;
+  }
+
   .stuffCardText {
     text-align: center;
   }
@@ -90,6 +94,9 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1.2rem;   
+  }
   .title h1 {
     font-size: 25px !important;
     margin: 15px 0 !important;

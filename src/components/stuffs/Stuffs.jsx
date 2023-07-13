@@ -10,7 +10,7 @@ const Stuffs = () => {
   const {stuffLeader, setStuffLeader} = useAuthStore()
 
   const getStuffLeader = () => {
-    getData('course_owners').then(res => {
+    getData('leaders').then(res => {
       setStuffLeader(res.data)
       console.log(res.data)
     })
@@ -19,6 +19,14 @@ const Stuffs = () => {
   useEffect(() => {
     getStuffLeader()
   }, []);
+
+  const boshliq = []
+
+  stuffLeader.map((item) => {
+    if (item.type == 'Rahbariyat') {
+        boshliq.push(item)
+    }
+  })
   
   return (
     <div className={style.container}>
@@ -33,8 +41,9 @@ const Stuffs = () => {
           </div>
           <div>
             <Row>
-              {stuffLeader.map((item, key) => (
-                <Col style={{margin: '0 auto'}} key={key} lg={6} md={12} sm={24} >
+              {boshliq.map((item, key) =>
+               (
+                 <Col style={{margin: '0 auto'}} key={key} lg={6} md={12} sm={24} >
                   <div className={style.stuffCard}>
                     {item.image == null ? <img src={noimage} alt='' style={{width: '250px', height: '333px'}}/> : <img src={item.image} alt='' style={{width: '250px', height: '333px'}}/>}
                       <div className={style.stuffCardText} >
