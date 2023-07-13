@@ -3,7 +3,7 @@
   padding: 60px 100px;
   max-width: 1517px;
   margin: 0 auto;
-  background-image: url('../../../public/footer/union.svg');
+  background-image: url('../../assets/footer/union.svg');
   background-repeat: no-repeat !important;
   background-position: left;
 }
