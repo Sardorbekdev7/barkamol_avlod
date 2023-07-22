@@ -97,3 +97,9 @@ a{
 .react-multi-carousel-list button {
   z-index: 5 !important;
 }
+
+.container {
+  max-width: 1517px;
+  margin:  0 auto;
+  padding: 0 100px 0  100px !important;
+}

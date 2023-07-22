@@ -15,18 +15,19 @@
 .container {
   max-width: 1517px;
   margin:  0 auto;
-  padding: 0 100px 0  40px !important;
+  padding: 0 100px 0  100px !important;
 }
 
 .navigat {
   display: flex;
-  position: sticky;
+  position: fixed;
   top: 250px;
-  left: 20px;
+  left: 20px !important;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-width: 60px !important;
+  justify-content:space-between;
+  width: 60px !important;
+  padding: 5px 0 0 0 ;
   background: #FFFFFF;
   backdrop-filter: blur(2px);
   border-radius: 30px;

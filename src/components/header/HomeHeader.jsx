@@ -7,7 +7,6 @@ import Navigat from "./Navigat";
 const HomeHeader = () => {
   return (
     <div className={style.homepage}>
-      <Navigat />
       <div className={style.container}>
         <Row
           style={{
