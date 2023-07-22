@@ -68,7 +68,7 @@ const Photos = () => {
           <p>Boshqa lavhalar</p>
           {photos.slice(0, 10).map((item, key) => (
             <div key={key} style={{margin: "16px"}}>
-              <Link onClick={() => setPhotoId(item.id)} to={`/axborot-xizmati/fotogalereya/${item.id}/`}>
+              <Link  to={`/axborot-xizmati/fotogalereya/${item.id}/`}> {/*onClick={() => setPhotoId(item.id)} */}
                 <img src={item.image1} alt='' width={338} height={200} />
               </Link>
               <div style={{display: "flex", alignItems: "center"}}>

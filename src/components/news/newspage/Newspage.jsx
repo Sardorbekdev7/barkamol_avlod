@@ -7,10 +7,11 @@ import { useEffect } from 'react'
 import { format } from 'date-fns'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData, getDataId } from '../../../service/api.service'
-import { Link } from 'react-router-dom'
-import { new_id } from '../../../data/data'
+import { Link, useParams } from 'react-router-dom'
+import { new_id, news } from '../../../data/data'
 
 const Newspage = () => {
+  const {newsId} = useParams()
   // const {news, setNews, setNewsId, newsId, setNew, new_id} = useAuthStore()
 
 
@@ -57,7 +58,7 @@ const Newspage = () => {
         </div>
         <div className={style.othernews}>
           <h2>Boshqa yangiliklar</h2>
-          <OtherNews news={news} id={newsId} setId={setNewsId}  />
+          <OtherNews news={news} id={newsId} />
         </div>
       </div>
       <div style={{display: 'flex', justifyContent: 'center'}}>

@@ -64,7 +64,7 @@ const Videos = () => {
           <p>Boshqa videolar</p>
           {videos.slice(0, 10).map((item, key) => (
             <div key={key} style={{margin: "16px"}}>
-              <Link onClick={() => setVideoId(item.id)} to={`/axborot-xizmati/videogalereya/${item.id}/`}>
+              <Link  to={`/axborot-xizmati/videogalereya/${item.id}/`}> {/*onClick={() => setVideoId(item.id)}*/}
                 <ReactPlayer
                   url={item.video1}
                   width="338px"

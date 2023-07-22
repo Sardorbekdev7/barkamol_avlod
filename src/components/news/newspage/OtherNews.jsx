@@ -34,15 +34,17 @@ const OtherNews = () => {
     <div>
       {
         news.slice(0, 10).map((item ,key) => (
-          <Link onClick={() => setNewsId(item.id)}  key={key} to={`/axborot-xizmati/yangiliklar/${item.id}/`}>
-            <div className={style.othernew}>
-              <div className={style.othernewstime}>
-                <img src={time} alt='' />
-                <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
+          <div key={key} >
+            <Link to={`/axborot-xizmati/yangiliklar/${item.id}/`}>
+              <div className={style.othernew}>
+                <div className={style.othernewstime}>
+                  <img src={time} alt='' />
+                  <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
+                </div>
+                <p>{item.name_uz}</p>
               </div>
-              <p>{item.name_uz}</p>
-            </div>
-          </Link>
+            </Link>
+          </div>
         ))
       }
     </div>

@@ -39,20 +39,23 @@ const Gallery = () => {
             <Row>
               {photos.map((item, key)=> (
                 <Col key={key} lg={8} md={12} sm={24}>
-                  <Link onClick={() => setPhotoId(item.id)} to={`/axborot-xizmati/fotogalereya/${item.id}/`}>
-                    <div className={style.galleryCard}>
-                      <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}}>
-                        <img src={item.image1} alt='' style={{width: '368px', height: '200px'}}/> 
-                      </div>
-                      <div className={style.galleryText}>
-                        <div style={{display: 'flex', alignItems: 'center', marginBottom: '14px'}}>
-                          <img src={img} alt='' />
-                          <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
+                  <div onClick={() => setPhotoId(item.id)}>
+                    <Link  to={`/axborot-xizmati/fotogalereya/${item.id}/`}>
+                      <div className={style.galleryCard}>
+                        <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}}>
+                          <img src={item.image1} alt='' style={{width: '368px', height: '200px'}}/> 
                         </div>
-                        <h1>{item.name_uz}</h1>
+                        <div className={style.galleryText}>
+                          <div style={{display: 'flex', alignItems: 'center', marginBottom: '14px'}}>
+                            <img src={img} alt='' />
+                            <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
+                          </div>
+                          <h1>{item.name_uz}</h1>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+
+                  </div>
                 </Col>
               ))}
             </Row>
