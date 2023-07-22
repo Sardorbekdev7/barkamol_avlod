@@ -49,6 +49,18 @@ export const news = [
   }
 ]
 
+export const new_id = {
+    "id": 4,
+    "name_uz": "Toshkent shahrida kichik yoshdagi bolalarni tarbiya",
+    "name_ru": "Toshkent shahrida kichik yoshdagi bolalarni t",
+    "name_en": "Toshkent shahrida kichik yoshdagi bo",
+    "text_uz": "Toshkent shahrida kichik yoshdagi bolalarni tarbiyalash va ularga ta’lim berish masalalari bo‘yicha jahon konferensiyasi bo‘lib o‘tdi. 15 noyabr kuni bu anjumanga O‘zbekiston prezidenti Shavkat Mirziyoyev tashrif buyurdi.",
+    "text_ru": "Toshkent shahrida kichik yoshdagi bolalarni tarbiyalash va ularga ta’lim berish masalalari bo‘yicha jahon konferensiyasi bo‘lib o‘tdi. 15 noyabr kuni bu anjumanga O‘zbekiston prezidenti Shavkat Mirziyoyev tashrif buyurdi.",
+    "text_en": "Toshkent shahrida kichik yoshdagi bolalarni tarbiyalash va ularga ta’lim berish masalalari bo‘yicha jahon konferensiyasi bo‘lib o‘tdi. 15 noyabr kuni bu anjumanga O‘zbekiston prezidenti Shavkat Mirziyoyev tashrif buyurdi.",
+    "media_type": "News",
+    "photo": "https://tatasteelchess.com/app/uploads/JH042372-LR-2.jpg",
+    "date": "2023-07-08"
+}
 
 
 export const sponsor = [
