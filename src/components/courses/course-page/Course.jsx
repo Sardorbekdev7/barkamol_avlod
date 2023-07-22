@@ -5,13 +5,13 @@ import { useAuthStore } from '../../../store/auth.store'
 import { getData, getDataId, makeTitle } from '../../../service/api.service'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../../news/newspage/Links'
-import { course } from '../../../data/data'
+import { course, coursewithid } from '../../../data/data'
 
 
 const Course = () => {
   // const { course, setCourse, course_id, setCourseId, coursewithid, setCoursewithid, path, setPath } = useAuthStore()
 
-  // const {userId} = useParams()
+  const {userId} = useParams()
   
   // const getId = () => {
   //   setCourseId(userId)
@@ -54,7 +54,7 @@ const Course = () => {
       <div className={style.newspages}>
         <div className={style.newspage}>
           <div>
-            <p><Link to={'/'}>Ta'lim yo'nalishlari</Link> {`>`} <Link to={`/talim-yonalishlari/${userId}`}>{coursewithid.name_uz} to'garagi</Link></p> 
+            <p><Link to={'/'}>Ta'lim yo'nalishlari</Link> {`>`} <Link to={`/talim-yonalishlari/${userId}/`}>{coursewithid.name_uz} to'garagi</Link></p> 
           </div>
           <h1>{coursewithid.name_uz}</h1>
           <img src={coursewithid.image} alt='' />
@@ -74,9 +74,11 @@ const Course = () => {
             {
               course.map((item, key) => 
                 (
-                  <Link key={key}  onClick={() => setCourseId(item.id)} to={`/talim-yonalishlari/${item.id}/`}>
-                    <Button>{item.name_uz}</Button>
-                  </Link>
+                  <div key={key} onClick={() => setCourseId(item.id)} >
+                    <Link  to={`/talim-yonalishlari/${item.id}/`}>
+                      <Button>{item.name_uz}</Button>
+                    </Link>
+                  </div>
                 )
               )
             }

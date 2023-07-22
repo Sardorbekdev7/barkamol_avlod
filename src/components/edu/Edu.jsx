@@ -53,9 +53,11 @@ const Edu = () => {
           {category.map((item, key) => (
             <Panel header={item.name_uz} key={key}>
               {course.map((it, key) => (
-                <Link key={key} onClick={() => setCourseId(it.id)} to={`/talim-yonalishlari/${it.id}/`} >
-                  <p>{item.id == it.category ? it.name_uz : <></>}</p>
-                </Link>
+                <div key={key} onClick={() => setCourseId(it.id)}>
+                  <Link  to={`/talim-yonalishlari/${it.id}/`} >
+                    <p>{item.id == it.category ? it.name_uz : <></>}</p>
+                  </Link>
+                </div>
               ))}
             </Panel>
           ))}

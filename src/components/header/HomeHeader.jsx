@@ -20,11 +20,13 @@ const HomeHeader = () => {
             }}
             lg={12}
             md={24}
+            sm={24}
+            xs={24}
           >
             <div className={style.headertext}>
               <h2>Toshlent Shahar</h2>
               <h1>
-                Barlamol Avlod <br />
+                Barkamol Avlod <br />
                 Bolalar Maktabi
               </h1>
               <p>

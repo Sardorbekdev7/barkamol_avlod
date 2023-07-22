@@ -19,7 +19,7 @@ const Courses = () => {
         <h1>Maktabimizdagi mavjud to`garaklar bilan tanishing</h1>
       </div>
       <Row align={'middle'} >
-      <Col lg={6} md={12} sm={24}>
+      <Col lg={6} md={12} sm={24} xs={24}>
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card1}`}>
               <div className={style.courseText}>
@@ -36,7 +36,7 @@ const Courses = () => {
             </div>
           </Link>
         </Col>
-        <Col lg={6} md={12} sm={24}>
+        <Col lg={6} md={12} sm={24} xs={24}>
         <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card2}`}>
               <div className={style.courseText}>
@@ -51,7 +51,7 @@ const Courses = () => {
             </div>
           </Link>
         </Col>
-        <Col lg={12} md={24} sm={24}>
+        <Col lg={12} md={24} sm={24} xs={24}>
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card3}`}>
               <div className={style.courseText}>
@@ -68,7 +68,7 @@ const Courses = () => {
         </Col>
       </Row>
       <Row>
-        <Col lg={6} md={12} sm={24}>
+        <Col lg={6} md={12} sm={24} xs={24}>
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card4}`}>
               <div className={style.courseText}>
@@ -83,7 +83,7 @@ const Courses = () => {
             </div>
           </Link>
         </Col>
-        <Col lg={6} md={12} sm={24}>
+        <Col lg={6} md={12} sm={24} xs={24}>
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card5}`}>
               <div className={style.courseText}>
@@ -98,7 +98,7 @@ const Courses = () => {
             </div>
           </Link>
         </Col>
-        <Col lg={6} md={12} sm={24} style={{width: '100%'}}>
+        <Col lg={6} md={12} sm={24} xs={24} style={{width: '100%'}}>
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card6}`}>
               <div className={style.courseText}>
@@ -113,7 +113,7 @@ const Courses = () => {
             </div>
           </Link>
         </Col>
-        <Col lg={6} md={12} sm={24}>
+        <Col lg={6} md={12} sm={24} xs={24}>
           <Link to={'/talim-yonalishlari/'}>
             <div className={`${style.coursecards} ${style.card7}`}>
               <div className={style.courseText}>
