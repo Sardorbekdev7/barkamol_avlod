@@ -12,7 +12,7 @@ const items = [
   {
     key: '2',
     label: (
-      <Link to={'/faoliyat/boshqa-xodimlar'}>Boshqa xodimlar</Link>
+      <Link to={'/faoliyat/boshqa-xodimlar/'}>Boshqa xodimlar</Link>
     )
   }
 ]

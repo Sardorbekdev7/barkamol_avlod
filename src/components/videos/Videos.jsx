@@ -8,29 +8,30 @@ import { getData, getDataId } from '../../service/api.service'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../news/newspage/Links'
 import { format } from 'date-fns'
+import { video, videos } from '../../data/data'
 
 const Videos = () => {
-  const {video_id, setVideoId, video, setVideo, setVideos, videos} = useAuthStore()
+  // const {video_id, setVideoId, video, setVideo, setVideos, videos} = useAuthStore()
 
-  const {id} = useParams()
+  // const {id} = useParams()
 
-  const getVideo = () => {
-    getDataId('video_gallery', id).then(res => {
-      setVideo(res.data)
-    })
-  }
+  // const getVideo = () => {
+  //   getDataId('video_gallery', id).then(res => {
+  //     setVideo(res.data)
+  //   })
+  // }
 
-  const getVideos = () => {
-    getData('video_gallery').then(res => {
-      setVideos(res.data)
-    })
-  }
+  // const getVideos = () => {
+  //   getData('video_gallery').then(res => {
+  //     setVideos(res.data)
+  //   })
+  // }
 
  
-  useEffect(() => {
-    getVideo()
-    getVideos()
-  }, [video_id]);
+  // useEffect(() => {
+  //   getVideo()
+  //   getVideos()
+  // }, [video_id]);
  
 
   return (

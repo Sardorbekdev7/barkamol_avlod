@@ -6,19 +6,20 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useAuthStore } from '../../store/auth.store';
 import { getData } from '../../service/api.service';
+import { sponsor } from '../../data/data';
 
 const Sponsor = () => {
-  const {sponsor, setSponsor} = useAuthStore()  
+  // const {sponsor, setSponsor} = useAuthStore()  
 
-  const getSponsor = () => {
-    getData('partners').then(res => {
-      setSponsor(res.data)
-    })
-  }
+  // const getSponsor = () => {
+  //   getData('partners').then(res => {
+  //     setSponsor(res.data)
+  //   })
+  // }
 
-  useEffect(() => {
-    getSponsor()
-  }, []);
+  // useEffect(() => {
+  //   getSponsor()
+  // }, []);
   
   const responsive = {
     desktop: {

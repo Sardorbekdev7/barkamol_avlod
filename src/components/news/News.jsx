@@ -7,20 +7,21 @@ import style from './style/news.module.css'
 import { useAuthStore } from '../../store/auth.store'
 import { getData } from '../../service/api.service'
 import { Link } from 'react-router-dom'
+import { news } from '../../data/data'
 
 
 const News = () => {
-  const {news, setNews, setNewsId, newsId} = useAuthStore()
+  // const {news, setNews, setNewsId, newsId} = useAuthStore()
 
-  const getNewsData = () => {
-    getData('news').then(res => {
-      setNews(res.data)
-    })
-  }
+  // const getNewsData = () => {
+  //   getData('news').then(res => {
+  //     setNews(res.data)
+  //   })
+  // }
 
-  useEffect(() => {
-    getNewsData()
-  }, []);
+  // useEffect(() => {
+  //   getNewsData()
+  // }, []);
   
 
   return (

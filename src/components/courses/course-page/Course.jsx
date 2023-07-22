@@ -5,39 +5,40 @@ import { useAuthStore } from '../../../store/auth.store'
 import { getData, getDataId, makeTitle } from '../../../service/api.service'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../../news/newspage/Links'
+import { course } from '../../../data/data'
 
 
 const Course = () => {
-  const { course, setCourse, course_id, setCourseId, coursewithid, setCoursewithid, path, setPath } = useAuthStore()
+  // const { course, setCourse, course_id, setCourseId, coursewithid, setCoursewithid, path, setPath } = useAuthStore()
 
-  const {userId} = useParams()
+  // const {userId} = useParams()
   
-  const getId = () => {
-    setCourseId(userId)
-  }
+  // const getId = () => {
+  //   setCourseId(userId)
+  // }
 
-  const getCourse = () => {
-    getDataId("courses", userId).then(res => {
-      setCoursewithid(res.data)
-      console.log(res);
-    })
-  }
+  // const getCourse = () => {
+  //   getDataId("courses", userId).then(res => {
+  //     setCoursewithid(res.data)
+  //     console.log(res);
+  //   })
+  // }
   
-  const getCourses = () => {
-    getData("courses").then(res => {
-      setCourse(res.data)
-    })
-  }
+  // const getCourses = () => {
+  //   getData("courses").then(res => {
+  //     setCourse(res.data)
+  //   })
+  // }
   
-  useEffect(() => {
-    console.log(userId);
-  }, [])
+  // useEffect(() => {
+  //   console.log(userId);
+  // }, [])
   
-  useEffect(() => {
-    getId()
-    getCourse()
-    getCourses()
-  }, [course_id]);
+  // useEffect(() => {
+  //   getId()
+  //   getCourse()
+  //   getCourses()
+  // }, [course_id]);
 
   // const changeCourse = ( course, id ) => {
   //   window.location.pathname = `/talim-yonalishlari/madaniyat-va-sanat/${course}`

@@ -5,30 +5,31 @@ import OtherNews from '../news/newspage/OtherNews'
 import { useAuthStore } from '../../store/auth.store';
 import { getData, slugify } from '../../service/api.service';
 import { Link } from 'react-router-dom';
+import { category, course } from '../../data/data';
 
 
 const { Panel } = Collapse;
 
 
 const Edu = () => {
-  const {category, setCategory, course, setCourse, course_id, setCourseId} = useAuthStore()
+  // const {category, setCategory, course, setCourse, course_id, setCourseId} = useAuthStore()
 
-  const getCategory = () => {
-    getData("categories").then(res => {
-      setCategory(res.data)
-    })
-  }
+  // const getCategory = () => {
+  //   getData("categories").then(res => {
+  //     setCategory(res.data)
+  //   })
+  // }
 
-  const getCourse = () => {
-    getData("courses").then(res => {
-      setCourse(res.data)
-    })
-  }
+  // const getCourse = () => {
+  //   getData("courses").then(res => {
+  //     setCourse(res.data)
+  //   })
+  // }
 
-  useEffect(() => {
-    getCategory()
-    getCourse()
-  }, [course_id]);
+  // useEffect(() => {
+  //   getCategory()
+  //   getCourse()
+  // }, [course_id]);
  
   
   return (

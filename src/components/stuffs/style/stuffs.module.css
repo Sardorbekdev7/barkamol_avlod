@@ -19,8 +19,13 @@
 
 .stuffCard {
   padding: 15px 25px 15px 0;
+  overflow: hidden;
 }
 
+.stuffImg {
+  width: 100%;
+  overflow: hidden;
+}
 
 
 .stuffCard h1 {

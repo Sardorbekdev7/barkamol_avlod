@@ -5,10 +5,11 @@ import { Drawer, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../../store/auth.store';
 import { getData } from '../../service/api.service';
+import { category } from '../../data/data';
 
 const DrawerBarkamol = () => {
   const [open, setOpen] = useState(false);
-  const {category, setCategory} = useAuthStore()
+  // const {category, setCategory} = useAuthStore()
   const [placement, setPlacement] = useState('left');
   const showDrawer = () => {
     setOpen(true);
@@ -28,15 +29,15 @@ const DrawerBarkamol = () => {
   }
 
 
-  const getCat = () => {
-    getData('categories').then(res => {
-      setCategory(res.data)
-    })
-  }
+  // const getCat = () => {
+  //   getData('categories').then(res => {
+  //     setCategory(res.data)
+  //   })
+  // }
 
-  useEffect(() => {
-    getCat()
-  }, []);
+  // useEffect(() => {
+  //   getCat()
+  // }, []);
 
 
   const talim = []
