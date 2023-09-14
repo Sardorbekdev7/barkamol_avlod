@@ -8,21 +8,20 @@ import telegram from '../../../assets/bosses/telegram.svg'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData } from '../../../service/api.service'
 import { Link } from 'react-router-dom'
-import { leaders } from '../../../data/data'
 
 
 const Bosses = () => {
-  // const { leaders, setLeaders } = useAuthStore()
+  const { leaders, setLeaders } = useAuthStore()
 
-  // const getLeaders = () => {
-  //   getData('course_owners').then(res => {
-  //     setLeaders(res.data)
-  //   })
-  // }
+  const getLeaders = () => {
+    getData('course_owners').then(res => {
+      setLeaders(res.data)
+    })
+  }
 
-  // useEffect(() => {
-  //   getLeaders()
-  // }, []);
+  useEffect(() => {
+    getLeaders()
+  }, []);
 
 
   return (

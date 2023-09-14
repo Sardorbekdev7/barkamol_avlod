@@ -5,30 +5,29 @@ import { useEffect } from 'react'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData, getDataId } from '../../../service/api.service'
 import { Link, useNavigate } from 'react-router-dom'
-import { news } from '../../../data/data'
 
 const OtherNews = () => {
-  // const {news, setNews, setNewsId, newsId, setNew, new_id} = useAuthStore()
+  const {news, setNews, setNewsId, newsId, setNew, new_id} = useAuthStore()
 
-  // const navigate = useNavigate()
+  const navigate = useNavigate()
 
-  // const getNewData = () =>{
-  //   getDataId('news', newsId).then(res => {
-  //     setNew(res.data)
-  //   })
-  // }
+  const getNewData = () =>{
+    getDataId('news', newsId).then(res => {
+      setNew(res.data)
+    })
+  }
 
-  // const getDatas = () => {
-  //   getData('news').then(res => {
-  //     setNews(res.data)
-  //   })
-  // }
+  const getDatas = () => {
+    getData('news').then(res => {
+      setNews(res.data)
+    })
+  }
 
 
-  // useEffect(() => {
-  //   getNewData()
-  //   getDatas()
-  // }, []);
+  useEffect(() => {
+    getNewData()
+    getDatas()
+  }, []);
 
   return (
     <div>

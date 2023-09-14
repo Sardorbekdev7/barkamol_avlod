@@ -7,34 +7,33 @@ import { getData, getDataId } from '../../service/api.service'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../news/newspage/Links'
 import { format } from 'date-fns'
-import { photo, photos } from '../../data/data'
 
 const Photos = () => {
-  // const {photo_id, setPhotoId, photo, setPhoto, setPhotos, photos} = useAuthStore()
-  // const {id} = useParams()
+  const {photo_id, setPhotoId, photo, setPhoto, setPhotos, photos} = useAuthStore()
+  const {id} = useParams()
 
-  // const getPhoto = () => {
-  //   getDataId('photo_gallery', id).then(res => {
-  //     setPhoto(res.data)
-  //     console.log(res.data);
-  //     console.log(location)
-  //   })
-  // }
-
-
-  // const getPhotos = () => {
-  //   getData('photo_gallery').then(res => {
-  //     setPhotos(res.data)
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
-  // } 
+  const getPhoto = () => {
+    getDataId('photo_gallery', id).then(res => {
+      setPhoto(res.data)
+      console.log(res.data);
+      console.log(location)
+    })
+  }
 
 
-  // useEffect(() => {
-  //   getPhoto()
-  //   getPhotos()
-  // }, [photo_id]);
+  const getPhotos = () => {
+    getData('photo_gallery').then(res => {
+      setPhotos(res.data)
+    }).catch(err => {
+      console.log(err);
+    })
+  } 
+
+
+  useEffect(() => {
+    getPhoto()
+    getPhotos()
+  }, [photo_id]);
 
  
 

@@ -8,29 +8,29 @@ import { format } from 'date-fns'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData, getDataId } from '../../../service/api.service'
 import { Link, useParams } from 'react-router-dom'
-import { new_id, news } from '../../../data/data'
 
 const Newspage = () => {
   const {newsId} = useParams()
-  // const {news, setNews, setNewsId, newsId, setNew, new_id} = useAuthStore()
+
+  const {news, setNews, setNewsId,  setNew, new_id} = useAuthStore()
 
 
-  // const getNewData = () =>{
-  //   getDataId('news', newsId).then(res => {
-  //     setNew(res.data)
-  //   })
-  // }
+  const getNewData = () =>{
+    getDataId('news', newsId).then(res => {
+      setNew(res.data)
+    })
+  }
 
-  // const getDatas = () => {
-  //   getData('news').then(res => {
-  //     setNews(res.data)
-  //   })
-  // }
+  const getDatas = () => {
+    getData('news').then(res => {
+      setNews(res.data)
+    })
+  }
 
-  // useEffect(() => {
-  //   getNewData()
-  //   getDatas()
-  // }, [newsId]);
+  useEffect(() => {
+    getNewData()
+    getDatas()
+  }, [newsId]);
 
 
   return (

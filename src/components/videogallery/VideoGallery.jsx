@@ -9,23 +9,22 @@ import { useAuthStore } from '../../store/auth.store'
 import { getData } from '../../service/api.service'
 import { Link } from 'react-router-dom'
 import Links from '../news/newspage/Links'
-import { videos } from '../../data/data'
 
 
 
 const VideoGallery = () => {
-  // const { videos, setVideos } = useAuthStore()
+  const { videos, setVideos } = useAuthStore()
 
-  // const getVideos = () => {
-  //   getData('video_gallery').then(res => {
-  //     setVideos(res.data)
-  //     console.log(res.data)
-  //   })
-  // }
+  const getVideos = () => {
+    getData('video_gallery').then(res => {
+      setVideos(res.data)
+      console.log(res.data)
+    })
+  }
 
-  // useEffect(() => {
-  //   getVideos()
-  // }, []);
+  useEffect(() => {
+    getVideos()
+  }, []);
 
   return (
     <div className={style.container}>

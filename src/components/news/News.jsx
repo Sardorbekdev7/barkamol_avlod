@@ -7,21 +7,20 @@ import style from './style/news.module.css'
 import { useAuthStore } from '../../store/auth.store'
 import { getData } from '../../service/api.service'
 import { Link } from 'react-router-dom'
-import { news } from '../../data/data'
 
 
 const News = () => {
-  // const {news, setNews, setNewsId, newsId} = useAuthStore()
+  const {news, setNews, setNewsId, newsId} = useAuthStore()
 
-  // const getNewsData = () => {
-  //   getData('news').then(res => {
-  //     setNews(res.data)
-  //   })
-  // }
+  const getNewsData = () => {
+    getData('news').then(res => {
+      setNews(res.data)
+    })
+  }
 
-  // useEffect(() => {
-  //   getNewsData()
-  // }, []);
+  useEffect(() => {
+    getNewsData()
+  }, []);
   
 
   return (
@@ -37,7 +36,7 @@ const News = () => {
           <Col key={key} lg={8} md={12} sm={24}>
             <div className={style.newscards}>
               <div className={style.newscardimg}>
-                <p>{item.media_type}</p>
+                <p>{item.media_type == 'News' ? 'Yangiliklar' : item.media_type}</p>
                 <Link onClick={() => setNewsId(item.id)} to={`/axborot-xizmati/yangiliklar/${item.id}/`}>
                   {item.photo == null ? <img src='https://www.freeiconspng.com/uploads/no-image-icon-6.png' alt="rasm yo'q" style={{borderRadius: "15px", width: '368px', height: '200px'}}  /> : <img src={item.photo} alt=''  style={{borderRadius: "15px", width: '368px', height: '200px'}} /> }
                 </Link>

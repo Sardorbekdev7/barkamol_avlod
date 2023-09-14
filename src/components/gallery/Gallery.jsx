@@ -9,22 +9,21 @@ import { useAuthStore } from '../../store/auth.store'
 import { getData } from '../../service/api.service'
 import { Link } from 'react-router-dom'
 import Links from '../news/newspage/Links'
-import { photos } from '../../data/data'
 
 const Gallery = () => {
-  // const {photos, setPhotos, photo_id, setPhotoId} = useAuthStore()
+  const {photos, setPhotos, photo_id, setPhotoId} = useAuthStore()
 
-  // const getPhotos = () => {
-  //   getData('photo_gallery').then(res => {
-  //     setPhotos(res.data)
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
-  // } 
+  const getPhotos = () => {
+    getData('photo_gallery').then(res => {
+      setPhotos(res.data)
+    }).catch(err => {
+      console.log(err);
+    })
+  } 
   
-  // useEffect(() => {
-  //   getPhotos()    
-  // }, [photo_id]);
+  useEffect(() => {
+    getPhotos()    
+  }, [photo_id]);
 
   return (
     <div className={style.container}>

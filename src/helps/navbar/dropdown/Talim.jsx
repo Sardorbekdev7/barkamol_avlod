@@ -7,7 +7,6 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData } from '../../../service/api.service'
-import { category } from '../../../data/data'
 
 
 
@@ -16,17 +15,17 @@ import { category } from '../../../data/data'
 
 const Talim  = () => {
 
-  // const {category, setCategory} = useAuthStore()
+  const {category, setCategory} = useAuthStore()
 
-  // const getCat = () => {
-  //   getData('categories').then(res => {
-  //     setCategory(res.data)
-  //   })
-  // }
+  const getCat = () => {
+    getData('categories').then(res => {
+      setCategory(res.data)
+    })
+  }
 
-  // useEffect(() => {
-  //   getCat()
-  // }, []);
+  useEffect(() => {
+    getCat()
+  }, []);
 
   const items = []
 
@@ -48,7 +47,7 @@ const Talim  = () => {
       >
         <a onClick={(e) => e.preventDefault()}>
             <p>
-             Talim 
+             Ta'lim 
             </p>
         </a>
       </Dropdown>

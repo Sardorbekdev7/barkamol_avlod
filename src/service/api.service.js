@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const url = 'http://185.65.202.40:4327/api'
+const url = 'https://admin.toshbabm.uz/api'
 
 export const getData=(token)=>{
   return(axios.get(`${url}/${token}/`))

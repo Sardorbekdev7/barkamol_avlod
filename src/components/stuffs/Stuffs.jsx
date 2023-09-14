@@ -5,29 +5,28 @@ import { useAuthStore } from '../../store/auth.store'
 import { Link } from 'react-router-dom'
 import { getData } from '../../service/api.service'
 import noimage from '../../assets/noimage.png'
-import { stuffLeader } from '../../data/data'
 
 const Stuffs = () => {
-  // const {stuffLeader, setStuffLeader} = useAuthStore()
+  const {stuffLeader, setStuffLeader} = useAuthStore()
 
-  // const getStuffLeader = () => {
-  //   getData('leaders').then(res => {
-  //     setStuffLeader(res.data)
-  //     console.log(res.data)
-  //   })
-  // }
+  const getStuffLeader = () => {
+    getData('leaders').then(res => {
+      setStuffLeader(res.data)
+      console.log(res.data)
+    })
+  }
 
-  // useEffect(() => {
-  //   getStuffLeader()
-  // }, []);
+  useEffect(() => {
+    getStuffLeader()
+  }, []);
 
-  // const boshliq = []
+  const boshliq = []
 
-  // stuffLeader.map((item) => {
-  //   if (item.type == 'Rahbariyat') {
-  //       boshliq.push(item)
-  //   }
-  // })
+  stuffLeader.map((item) => {
+    if (item.type == 'Rahbariyat') {
+        boshliq.push(item)
+    }
+  })
   
   return (
     <div className={style.container}>
