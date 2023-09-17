@@ -5,11 +5,22 @@ import { Drawer, Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import { useAuthStore } from '../../store/auth.store';
 import { getData } from '../../service/api.service';
+import { useTranslation } from "react-i18next";
+import i18n from '../../locale/i18next';
 
 const DrawerBarkamol = () => {
   const [open, setOpen] = useState(false);
   const {category, setCategory} = useAuthStore()
   const [placement, setPlacement] = useState('left');
+  const { t } = useTranslation();
+  const [lang, setLang] = useState();
+
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
+
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -43,37 +54,43 @@ const DrawerBarkamol = () => {
 
   category.map((item, key) => {
     talim.push(
-        getItem(<Link to="/talim-yonalishlari/"><p>{item.name_uz}</p></Link>, key + 20)
+        getItem(<Link to="/talim-yonalishlari/"><p>{
+          lang == "uz" 
+          ? item.name_uz 
+          : lang == "ru" 
+          ? item.name_ru 
+          : item.name_en
+        }</p></Link>, key + 20)
       )
   })
 
   const items = [
-    getItem(<p>Maktab</p>, 'sub1', <></>, [
-      getItem(<Link to="/maktab/maktab-haqida/"><p>Maktab haqida</p></Link>, '1'),
-      getItem(<Link to="/maktab/rahbariyat/"><p>Rahbariyat</p></Link>, '2'),
-      getItem(<Link to="/maktab/maktab-tuzilmasi/"><p>Maktab tuzilmasi</p></Link>, '3'),
+    getItem(<p>{t("maktab")}</p>, 'sub1', <></>, [
+      getItem(<Link to="/maktab/maktab-haqida/"><p>{t("Maktabhaqida")}</p></Link>, '1'),
+      getItem(<Link to="/maktab/rahbariyat/"><p>{t("Rahbariyat")}</p></Link>, '2'),
+      getItem(<Link to="/maktab/maktab-tuzilmasi/"><p>{t("Maktab tuzilmasi")}</p></Link>, '3'),
     ]),
-    getItem(<p>Hujjatlar</p>, 'sub2', <></>, [
-      getItem(<Link to="/hujjatlar/331-qaror/"><p>331-qaror</p></Link>, '15'),
-      getItem(<Link to="/hujjatlar/4467-qaror/"><p>4467-qaror</p></Link>, '4')
+    getItem(<p>{t("Hujjatlar")}</p>, 'sub2', <></>, [
+      getItem(<Link to="/hujjatlar/331-qaror/"><p>{t("331-qaror")}</p></Link>, '15'),
+      getItem(<Link to="/hujjatlar/4467-qaror/"><p>{t("4467-qaror")}</p></Link>, '4')
     ]),
-    getItem(<p>Ta{`'`}lim yo{`'`}nalishlari</p>, 'sub3', <></>, 
+    getItem(<p>{t("Ta'lim yo'nalishlari")}</p>, 'sub3', <></>, 
       talim
     ),
-    getItem(<p>Faoliyat</p>, 'sub4', <></>, [
-      getItem(<Link to="/faoliyat/togarak-rahbarlari/"><p>To{`'`}garak boshliqlari</p></Link>, '16'),
-      getItem(<Link to="/faoliyat/boshqa-xodimlar/"><p>Boshqa xodimlar</p></Link>, '12')
+    getItem(<p>{t("Faoliyat")}</p>, 'sub4', <></>, [
+      getItem(<Link to="/faoliyat/togarak-rahbarlari/"><p>{t("To'garak boshliqlari")}</p></Link>, '16'),
+      getItem(<Link to="/faoliyat/boshqa-xodimlar/"><p>{t("Boshqa xodimlar")}</p></Link>, '12')
     ]),
-    getItem(<p>Axborot xizmati</p>, 'sub5', <></>, [
-      getItem(<Link to="/axborot-xizmati/fotogalereya/"><p>Galereya</p></Link>, '13'),
-      getItem(<Link to="/axborot-xizmati/videogalereya/"><p>Videogaleya</p></Link>, '14')
+    getItem(<p>{t("Axborot xizmatlari")}</p>, 'sub5', <></>, [
+      getItem(<Link to="/axborot-xizmati/fotogalereya/"><p>{t("Galereya")}</p></Link>, '13'),
+      getItem(<Link to="/axborot-xizmati/videogalereya/"><p>{t("Videogalereya")}</p></Link>, '14')
     ])
   ]
   return (
  
       <React.Fragment>
         <div>
-          <div  onClick={showDrawer}>
+          <div  onClick={showDrawer} style={{cursor: 'pointer'}}>
             <GiHamburgerMenu />
           </div>
           <Drawer

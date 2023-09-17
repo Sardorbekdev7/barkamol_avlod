@@ -1,25 +1,33 @@
 import { Dropdown, Space } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-const items = [
-  {
-    key: '1',
-    label: (
-      <Link to={'/faoliyat/togarak-rahbarlari/'}>To{`'`}garak boshliqlari</Link>
-    )
-  },
-  {
-    key: '2',
-    label: (
-      <Link to={'/faoliyat/boshqa-xodimlar/'}>Boshqa xodimlar</Link>
-    )
-  }
-]
+import { useTranslation } from "react-i18next";
+import i18n from '../../../locale/i18next';
 
 
 const Faoliyat = () => {
+  const { t } = useTranslation();
+  const [lang, setLang] = useState();
 
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
+
+  const items = [
+    {
+      key: '1',
+      label: (
+        <Link to={'/faoliyat/togarak-rahbarlari/'}>{t("To'garak boshliqlari")}</Link>
+      )
+    },
+    {
+      key: '2',
+      label: (
+        <Link to={'/faoliyat/boshqa-xodimlar/'}>{t("Boshqa xodimlar")}</Link>
+      )
+    }
+  ]
   return (
     <div>
       <Dropdown
@@ -27,7 +35,7 @@ const Faoliyat = () => {
       >
         <a onClick={(e) => e.preventDefault()}>
             <p>
-             Faoliyat
+             {t("Faoliyat")}
             </p>
         </a>
       </Dropdown>

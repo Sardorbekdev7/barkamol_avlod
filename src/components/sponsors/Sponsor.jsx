@@ -1,15 +1,21 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import style from './style/sponsor.module.css'
-
+import { useTranslation } from "react-i18next";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { useAuthStore } from '../../store/auth.store';
 import { getData } from '../../service/api.service';
+import i18n from '../../locale/i18next';
 
 const Sponsor = () => {
   const {sponsor, setSponsor} = useAuthStore()  
-
+  const [lang, setLang] = useState();
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
   const getSponsor = () => {
     getData('partners').then(res => {
       setSponsor(res.data)
@@ -41,13 +47,13 @@ const Sponsor = () => {
     <div className={style.container}>
       <div style={{marginBottom: '90px'}}>
         <div className={style.sponsorcard}>
-          <p>-Hamkorlar-</p>
-          <h1>Bizning hamkorlar</h1>
+          <p>-{t("Hamkorlar")}-</p>
+          <h1>{t("Bizning hamkorlar")}</h1>
         </div>
         <Carousel 
           responsive={responsive}
           infinite={true}
-          // autoPlay={true}
+          autoPlay={true}
           autoPlaySpeed={2000}
           itemClass="carousel-item-padding-40-px"
         >
@@ -56,7 +62,13 @@ const Sponsor = () => {
               <div className={style.sponsorimg}>
                 <img src={item.image} alt=''/>
               </div>
-              <p>{item.name_uz}</p>
+              <p>{
+                lang == "uz" 
+                ? item.name_uz 
+                : lang == "ru" 
+                ? item.name_ru 
+                : item.name_en
+              }</p>
             </div>
           ))}
           

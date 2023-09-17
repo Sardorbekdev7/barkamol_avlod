@@ -1,0 +1,22 @@
+.navbar{height: 100px; background-color: white; padding: 0px 124px; position: fixed; top:0px; left:0px;  width: 100%; 
+  z-index: 34;box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;}
+.navLink{
+  color: #0B2441 !important; font-size: 12px !important; display: flex !important; align-items: center;
+  white-space: nowrap;
+
+  margin: 0px 10px;
+}
+.btnAqua{cursor: pointer !important;}
+.dropdown{margin-right: 18px; font-size: 12px;  color: #2189FF; width: 69px;
+  height: 48px; border: 1px solid #EAF4FF;
+  border-radius: 16px;}
+.dropdown img{margin-left: 6.72px;}
+
+@media (max-width: 1024px){
+  .dropdown{ margin-right: 0px;}
+  .navLink{font-size: 14px !important;}
+  .navbar{padding: 0px 70px;}
+}
+@media (min-width: 1600px){
+  .navbar{padding: 0px 200px;}
+}

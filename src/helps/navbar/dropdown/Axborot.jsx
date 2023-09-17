@@ -1,26 +1,35 @@
 import { Dropdown, Space } from 'antd'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from "react-i18next";
+import i18n from '../../../locale/i18next';
 
-const items = [
-  {
-    key: '1',
-    label: (
-      <Link to={'/axborot-xizmati/fotogalereya'}>Galereya</Link>
-    )
-  },
-  {
-    key: '2',
-    label: (
-      <Link to={'/axborot-xizmati/videogalereya'}>Videogaleya</Link>
-    )
-  }
-]
 
 
 const Axborot = () => {
+  const { t } = useTranslation();
+  const [lang, setLang] = useState();
 
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
+  
+  const items = [
+    {
+      key: '1',
+      label: (
+        <Link to={'/axborot-xizmati/fotogalereya'}>{t("Galereya")}</Link>
+      )
+    },
+    {
+      key: '2',
+      label: (
+        <Link to={'/axborot-xizmati/videogalereya'}>{t("Videogalereya")}</Link>
+      )
+    }
+  ]
   return (
     <div>
       <Dropdown
@@ -28,7 +37,7 @@ const Axborot = () => {
       >
         <a onClick={(e) => e.preventDefault()}>
             <p>
-             Axborot xizmatlari
+             {t("Axborot xizmatlari")}
             </p>
         </a>
       </Dropdown>

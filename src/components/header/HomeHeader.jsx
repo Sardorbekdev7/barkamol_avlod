@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./style/homeheader.module.css";
 import { Button, Col, Row } from "antd";
 
 import Navigat from "./Navigat";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import i18n from "../../locale/i18next";
 
 const HomeHeader = () => {
+  const [lang, setLang] = useState();
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
+
   return (
     <div className={style.homepage}>
       <div className={style.container}>
@@ -23,17 +33,15 @@ const HomeHeader = () => {
             xs={24}
           >
             <div className={style.headertext}>
-              <h2>Toshlent Shahar</h2>
+              <h2>{t("Toshkent shahar")}</h2>
               <h1>
-                Barkamol Avlod <br />
-                Bolalar Maktabi
+                {`"`}{t("Barkamol avlod")}{`"`} <br />
+                {t("bolalar maktabi")}
               </h1>
               <p>
-                Keling, koʻring, biz bilan birgalikda bolalar bilimini
-                yuksaltiring! Zero, Yangi Oʻzbekistonning kelajagi boʻlmish
-                barkamol avlodni voyaga yetkazish har birimizning burchimizdir.
+                {t("Keling, koʻring, biz bilan birgalikda bolalar bilimini  yuksaltiring! Zero, Yangi Oʻzbekistonning kelajagi boʻlmish  barkamol avlodni voyaga yetkazish har birimizning burchimizdir.")}
               </p>
-              <Button>Batafsil</Button>
+              <Link to={'/maktab/maktab-haqida/'}>{t("Batafsil")}</Link>
             </div>
           </Col>
         </Row>

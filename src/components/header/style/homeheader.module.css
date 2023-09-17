@@ -14,7 +14,6 @@
 
 .container {
   max-width: 1517px;
-  margin:  0 auto;
   padding: 0 100px 0  100px !important;
 }
 
@@ -65,7 +64,7 @@
   margin: 44px 0 !important;
 } 
 
-.headertext button {
+.headertext a {
   width: 103px;
   height: 40px;
   background: #20AFFF;

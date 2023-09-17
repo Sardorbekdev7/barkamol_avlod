@@ -14,6 +14,7 @@ import Gallery from './components/gallery/Gallery'
 import Photos from './components/photos/Photos'
 import VideoGallery from './components/videogallery/VideoGallery'
 import Videos from './components/videos/Videos'
+import YangiliklarPage from './components/yangiliklar/YangiliklarPage'
 const App = () => {
 
   return (
@@ -23,6 +24,7 @@ const App = () => {
             <Route path='/maktab/maktab-haqida/' element={<About />} />    
             <Route path='/maktab/rahbariyat/' element={<Bosses />} />
             <Route path='/maktab/maktab-tuzilmasi/' element={<Structure />} />
+            <Route path='/yangiliklar' element={<YangiliklarPage />} />
             <Route path='/talim-yonalishlari/' element={<Edu />} />
             <Route path={`/axborot-xizmati/yangiliklar/*`} element={<Newspage />} />
             <Route path={`/talim-yonalishlari/:userId`} element={<Course />} />

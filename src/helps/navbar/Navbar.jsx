@@ -10,6 +10,8 @@ import Talim from './dropdown/Talim'
 import Faoliyat from './dropdown/Faoliyat'
 import Axborot from './dropdown/Axborot'
 import { Link } from 'react-router-dom'
+import Yangiliklar from './dropdown/Yangiliklar'
+import Tillar from '../../components/tillar/Tillar'
 
 const queries = [
   '(max-width: 1024px)',
@@ -35,7 +37,7 @@ const Navbar = () => {
       <div className={style.navItem}>
         {domLoaded && (
           <>
-        {mobile ? <DrawerBarkamol /> : 
+        {mobile ? <div style={{display: 'flex', alignItems: 'center', gap: '30px'}}><Tillar /> <DrawerBarkamol /></div>  : 
         <div className={style.navItems}>  
           <div style={{cursor: 'pointer'}}>
             <Maktab />
@@ -51,6 +53,12 @@ const Navbar = () => {
           </div>
           <div style={{cursor: 'pointer'}}>
             <Axborot />
+          </div>
+          <div style={{cursor: 'pointer'}}>
+            <Yangiliklar />
+          </div>
+          <div style={{cursor: 'pointer'}}>
+            <Tillar />
           </div>
         </div>
         }

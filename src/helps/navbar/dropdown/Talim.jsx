@@ -3,19 +3,21 @@
 import { Dropdown, Space } from 'antd'
 
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData } from '../../../service/api.service'
 
-
+import { useTranslation } from "react-i18next";
+import i18n from '../../../locale/i18next';
 
 
 
 
 const Talim  = () => {
-
+  const { t } = useTranslation();
   const {category, setCategory} = useAuthStore()
+  const [lang, setLang] = useState();
 
   const getCat = () => {
     getData('categories').then(res => {
@@ -27,6 +29,11 @@ const Talim  = () => {
     getCat()
   }, []);
 
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
+
   const items = []
 
   category.map((item, key) => {
@@ -34,7 +41,13 @@ const Talim  = () => {
       {
         key: key,
         label: (
-        <Link to={'/talim-yonalishlari/'}>{item.name_uz}</Link>
+        <Link to={'/talim-yonalishlari/'}>{
+          lang == "uz" 
+          ? item.name_uz 
+          : lang == "ru" 
+          ? item.name_ru 
+          : item.name_en
+        }</Link>
         )
       }
     )
@@ -47,7 +60,7 @@ const Talim  = () => {
       >
         <a onClick={(e) => e.preventDefault()}>
             <p>
-             Ta'lim 
+             {t("Ta'lim yo'nalishlari")}
             </p>
         </a>
       </Dropdown>
