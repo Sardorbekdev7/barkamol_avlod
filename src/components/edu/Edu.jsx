@@ -5,6 +5,8 @@ import OtherNews from '../news/newspage/OtherNews'
 import { useAuthStore } from '../../store/auth.store';
 import { getData, slugify } from '../../service/api.service';
 import { Link } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+import i18n from '../../locale/i18next';
 
 
 const { Panel } = Collapse;
@@ -12,6 +14,12 @@ const { Panel } = Collapse;
 
 const Edu = () => {
   const {category, setCategory, course, setCourse, course_id, setCourseId} = useAuthStore()
+  const [lang, setLang] = useState();
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
 
   const getCategory = () => {
     getData("categories").then(res => {
@@ -37,7 +45,7 @@ const Edu = () => {
       </div>
       <div className={style.edutext}>
         <div className={style.edutextleft}>
-        <Link to={'/talim-yonalishlari/'} >Talim yo’nalishlari {'>'}</Link>
+        <Link to={'/talim-yonalishlari/'} >{t("Talim yo’nalishlari")} {'>'}</Link>
         <Collapse 
           accordion
           // expandIcon={<PlusOutlined />}
@@ -50,11 +58,26 @@ const Edu = () => {
             boxShadow: 'none',
         }}>
           {category.map((item, key) => (
-            <Panel header={item.name_uz} key={key}>
+            <Panel header={
+              lang == "uz" 
+              ? item.name_uz 
+              : lang == "ru" 
+              ? item.name_ru 
+              : item.name_en
+            } key={key}>
               {course.map((it, key) => (
                 <div key={key} onClick={() => setCourseId(it.id)}>
                   <Link  to={`/talim-yonalishlari/${it.id}/`} >
-                    <p>{item.id == it.category ? it.name_uz : <></>}</p>
+                    <p>{item.id == it.category ? <>
+                      {
+                        lang == "uz" 
+                        ? item.name_uz 
+                        : lang == "ru" 
+                        ? item.name_ru 
+                        : item.name_en
+                      }
+                    </> 
+                     : <></>}</p>
                   </Link>
                 </div>
               ))}
@@ -63,7 +86,7 @@ const Edu = () => {
         </Collapse>
         </div>
         <div className={style.edutextright}>
-          <h2>Yangiliklar</h2>
+          <h2>{t("Yangiliklar")}</h2>
           <OtherNews />
         </div>
       </div>

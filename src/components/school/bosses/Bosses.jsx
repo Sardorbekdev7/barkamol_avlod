@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './style/bosses.module.css'
 import { Col, Row } from 'antd'
 
@@ -8,10 +8,17 @@ import telegram from '../../../assets/bosses/telegram.svg'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData } from '../../../service/api.service'
 import { Link } from 'react-router-dom'
-
+import i18n from '../../../locale/i18next'
+import { useTranslation } from "react-i18next";
 
 const Bosses = () => {
   const { leaders, setLeaders } = useAuthStore()
+  const [lang, setLang] = useState();
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
 
   const getLeaders = () => {
     getData('course_owners').then(res => {
@@ -27,18 +34,13 @@ const Bosses = () => {
   return (
     <div className={style.bosses}>
       <div className={style.bosseslink}>
-        <Link to={'/'}>Maktab</Link><p>{' > '}</p><Link to={'/maktab/rahbariyat/'}>Rahbariyat</Link>
+        <Link to={'/'}>{t("maktab")}</Link><p>{' > '}</p><Link to={'/maktab/rahbariyat/'}>{t("Rahbariyat")}</Link>
       </div>
       <div>
-        <Row>
           {
             leaders.slice(0, 1).map((item, key) => (
               <Row key={key}>
-              <Col style={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-              }} 
-              lg={12} md={12} sm={24}>
+              <Col style={{display: 'flex', alignItems: "center", justifyContent: "center"}} lg={12} md={12} sm={24}>
                 <div className={style.bosscard}>
                   <img className={style.bossimg} src={item.image} alt='' />
                 </div>
@@ -46,12 +48,24 @@ const Bosses = () => {
               <Col lg={12} md={12} sm={24}>
                 <div className={style.bosscard}>
                   <div className={style.boss}>
-                    <h1>{item.name_uz}</h1>
-                    <p>{item.position_uz}</p>
+                    <h1>{
+                      lang == "uz" 
+                      ? item.name_uz 
+                      : lang == "ru" 
+                      ? item.name_ru 
+                      : item.name_en
+                    }</h1>
+                    <p>{
+                      lang == "uz" 
+                      ? item.position_uz 
+                      : lang == "ru" 
+                      ? item.position_ru 
+                      : item.position_en
+                    }</p>
                     <div className={style.bossConnect}>
-                      <a href={`tel:${item.phone}`}>Telefon raqami: {item.phone}</a>
+                      <a href={`tel:${item.phone}`}>{t("Telefon raqami:")} {item.phone}</a>
                       <br />
-                      <a href={`mailto:${item.email}`}>E-mail: {item.email}</a>
+                      <a href={`mailto:${item.email}`}>{t("E-mail:")} {item.email}</a>
                     </div>
                     <div>
                       <a href={'https://www.facebook.com/tosh_babm'} target='blank'>
@@ -70,6 +84,7 @@ const Bosses = () => {
               </Row>
             ))
           }
+          <Row>
           {
             leaders.slice(1).map((item, key) => (
               <Col key={key} lg={6} md={12} sm={24}>
@@ -79,19 +94,19 @@ const Bosses = () => {
                     <h1>{item.name_uz}</h1>
                     <p>{item.position_uz}</p>
                     <div className={style.bossConnect}>
-                      <a href={`tel:${item.phone}`}>Telefon raqami: {item.phone}</a>
+                      <a href={`tel:${item.phone}`}>{t("Telefon raqami:")} {item.phone}</a>
                       <br />
-                      <a href={`mailto:${item.email}`}>E-mail: {item.email}</a>
+                      <a href={`mailto:${item.email}`}>{t("mail")} {item.email}</a>
                     </div>
                   </div>
                 </div>
               </Col>
             ))
           }
-        </Row>
+          </Row>
       </div>
       <div className='back'> 
-          <Link to={'/'}>Ortga</Link>
+          <Link to={'/'}>{t("Ortga")}</Link>
       </div>
     </div>
   )

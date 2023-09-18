@@ -1,13 +1,23 @@
 import style from './style/newspage.module.css'
 import time from '../../../assets/newspage/clock.svg'
 import { format } from 'date-fns'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuthStore } from '../../../store/auth.store'
 import { getData, getDataId } from '../../../service/api.service'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from "react-i18next";
+import i18n from '../../../locale/i18next'
+
 
 const OtherNews = () => {
   const {news, setNews, setNewsId, newsId, setNew, new_id} = useAuthStore()
+
+  const [lang, setLang] = useState();
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
 
   const navigate = useNavigate()
 
@@ -40,7 +50,14 @@ const OtherNews = () => {
                   <img src={time} alt='' />
                   <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
                 </div>
-                <p>{item.name_uz}</p>
+                <p>{
+                      lang == "uz" 
+                      ? item.name_uz 
+                      : lang == "ru" 
+                      ? item.name_ru 
+                      : item.name_en
+                    }
+                  </p>
               </div>
             </Link>
           </div>

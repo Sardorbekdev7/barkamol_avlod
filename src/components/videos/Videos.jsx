@@ -1,18 +1,28 @@
 import style from './style/videos.module.css'
 
 import img from '../../assets/gallery/clock.svg'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { useAuthStore } from '../../store/auth.store'
 import { getData, getDataId } from '../../service/api.service'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../news/newspage/Links'
 import { format } from 'date-fns'
+import i18n from '../../locale/i18next'
+import { useTranslation } from "react-i18next";
 
 const Videos = () => {
   const {video_id, setVideoId, video, setVideo, setVideos, videos} = useAuthStore()
 
   const {id} = useParams()
+
+  const [lang, setLang] = useState();
+
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
 
   const getVideo = () => {
     getDataId('video_gallery', id).then(res => {
@@ -38,11 +48,17 @@ const Videos = () => {
       <div style={{display: "flex", width: "100%"}}>
         <div className={style.photos}>
             <div style={{display: 'flex'}}>
-              <p style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}}>Axborot xizmati {'>'}</p>
-              <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'/axborot-xizmati/fotogalereya/'}>Videogalereya</Link>
+              <p style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}}>{t("Axborot xizmatlari")} {'>'}</p>
+              <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'/axborot-xizmati/fotogalereya/'}>{t("Videogalereya")}</Link>
             </div>
             <div>
-              <h1>{video.name_uz}</h1>
+              <h1>{
+                      lang == "uz" 
+                      ? video.name_uz 
+                      : lang == "ru" 
+                      ? video.name_ru 
+                      : video.name_en
+                    }</h1>
               <div style={{display: 'flex', alignItems: 'center'}}>
                 <img src={img} alt='' />
                 <p>{format(video.date == null ? new Date() : new Date(video.date), "dd MMM, yyyy")}</p>
@@ -60,7 +76,7 @@ const Videos = () => {
             </div>
         </div>
         <div className={style.otherPhotos}>
-          <p>Boshqa videolar</p>
+          <p>{t("Boshqa videolar")}</p>
           {videos.slice(0, 10).map((item, key) => (
             <div key={key} style={{margin: "16px"}}>
               <Link  to={`/axborot-xizmati/videogalereya/${item.id}/`}> {/*onClick={() => setVideoId(item.id)}*/}
@@ -68,19 +84,26 @@ const Videos = () => {
                   url={item.video1}
                   width="338px"
                   height="200px"
+                  volume={false}
                 />
               </Link>
               <div style={{display: "flex", alignItems: "center", marginTop: '14px'}}>
                 <img src={img} alt='' />
                 <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
               </div>
-              <h1 style={{margin: '14px 0'}}>{item.name_uz}</h1>
+              <h1 style={{margin: '14px 0'}}>{
+                      lang == "uz" 
+                      ? item.name_uz 
+                      : lang == "ru" 
+                      ? item.name_ru 
+                      : item.name_en
+                    }</h1>
             </div>
           ))}
         </div>
       </div>
       <div className='back'>
-          <Link to={'/'}>Ortga</Link>
+          <Link to={'/'}>{t("Ortga")}</Link>
       </div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <Links />

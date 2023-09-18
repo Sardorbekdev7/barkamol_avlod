@@ -1,16 +1,25 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import img from '../../../assets/about/img.svg'
 
 import style from './style/about.module.css'
 import { Link } from 'react-router-dom'
+import { useTranslation } from "react-i18next";
+import i18n from '../../../locale/i18next';
 
 export const About = () => {
+  const [lang, setLang] = useState();
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
+
   return (
     <div className={style.about}>
       <div className={style.aboutlink}>
-        <p>Maktab {'>'}</p>
-        <Link to={'/maktab/maktab-haqida/'}> Maktab haqida</Link>
+        <p>{t("maktab")} {'>'}</p>
+        <Link to={'/maktab/maktab-haqida/'}> {t("Maktabhaqida")}</Link>
       </div>
       <div className={style.abouttext}>
         <img src={img} alt='' />
@@ -23,7 +32,7 @@ export const About = () => {
         </div>
       </div>
         <div className='back'>
-          <Link to={'/'}>Ortga</Link>
+          <Link to={'/'}>{t("Ortga")}</Link>
         </div>
     </div>
   )

@@ -1,13 +1,22 @@
 import style from './style/stuffs.module.css'
 import { Col, Row } from 'antd'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAuthStore } from '../../store/auth.store'
 import { Link } from 'react-router-dom'
 import { getData } from '../../service/api.service'
 import noimage from '../../assets/noimage.png'
+import { useTranslation } from "react-i18next";
+import i18n from '../../locale/i18next'
 
 const Stuffs = () => {
   const {stuffLeader, setStuffLeader} = useAuthStore()
+  const [lang, setLang] = useState();
+
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
 
   const getStuffLeader = () => {
     getData('leaders').then(res => {
@@ -32,12 +41,12 @@ const Stuffs = () => {
     <div className={style.container}>
       <div className={style.stuffs}>
         <div style={{display: 'flex'}}>
-          <p style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}}>Axborot xizmati {'>'}</p>
-          <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'faoliyat/togarak-rahbarlari/'}>To’garak rahbarlari</Link>
+          <p style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}}>{t("Axborot xizmatlari")} {'>'}</p>
+          <Link style={{color: '#3D3D3D', fontSize: '14px', fontFamily: 'Poppins'}} to={'faoliyat/togarak-rahbarlari/'}>{t("To’garak rahbarlari")}</Link>
         </div>
         <div>
           <div className={style.title}>
-            <h1>Toshkent shahar “Barkamol Avlod” bolalar maktabining to’garak rahbarlari</h1>
+            <h1>{t("Toshkent shahar “Barkamol Avlod” bolalar maktabining to’garak rahbarlari")}</h1>
           </div>
           <div>
             <Row>
@@ -47,11 +56,23 @@ const Stuffs = () => {
                   <div className={style.stuffCard}>
                       {item.image == null ? <img src={noimage} alt='' style={{width: '250px', height: '333px'}}/> : <img src={item.image} alt='' style={{width: '250px', height: '333px'}}/>}
                       <div className={style.stuffCardText} >
-                      <h1>{item.name_uz}</h1>
-                      <p>{item.position_uz}</p>
-                      <a href={`tel:${item.phone}`}>Telefon raqami: {item.phone}</a>
+                      <h1>{
+                      lang == "uz" 
+                        ? item.name_uz 
+                        : lang == "ru" 
+                        ? item.name_ru 
+                        : item.name_en
+                      }</h1>
+                      <p>{
+                        lang == "uz" 
+                        ? item.position_uz 
+                        : lang == "ru" 
+                        ? item.position_ru 
+                        : item.position_en
+                      }</p>
+                      <a href={`tel:${item.phone}`}>{t("Telefon raqami:")} {item.phone}</a>
                       <br />
-                      <a href={`mailto:${item.email}`}>E-mail: {item.email}</a>
+                      <a href={`mailto:${item.email}`}>{t("mail")} {item.email}</a>
                     </div>
                   </div>
                 </Col>
@@ -60,7 +81,7 @@ const Stuffs = () => {
           </div>
         </div>
       <div className='back'>
-          <Link href={'/'}>Ortga</Link>
+          <Link href={'/'}>{t("Ortga")}</Link>
       </div>
       </div>
     </div>
