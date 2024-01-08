@@ -2,9 +2,12 @@ import React, { useEffect, useRef } from 'react'
 import style from './style/course.module.css'
 import { Button } from 'antd'
 import { useAuthStore } from '../../../store/auth.store'
-import { getData, getDataId, makeTitle } from '../../../service/api.service'
+import { getData, getDataId, makeTitle, url } from '../../../service/api.service'
 import { Link, useParams } from 'react-router-dom'
 import Links from '../../news/newspage/Links'
+import Footer from '../../footer/Footer'
+import Navbar from '../../../helps/navbar/Navbar'
+import axios from 'axios'
 
 
 const Course = () => {
@@ -17,15 +20,15 @@ const Course = () => {
   }
 
   const getCourse = () => {
-    getDataId("courses", userId).then(res => {
-      setCoursewithid(res.data)
+    axios.get(url + `/directions/by-id/${userId}`).then(res => {
+      setCoursewithid(res.data.data)
       console.log(res);
     })
   }
   
   const getCourses = () => {
-    getData("courses").then(res => {
-      setCourse(res.data)
+    getData("directions").then(res => {
+      setCourse(res.data.data)
     })
   }
   
@@ -43,17 +46,19 @@ const Course = () => {
 
 
   return (
+    <>
+    <Navbar/>
       <div className={style.container}>
       <div className={style.newspages}>
         <div className={style.newspage}>
           <div>
-            <p><Link to={'/'}>Ta'lim yo'nalishlari</Link> {`>`} <Link to={`/talim-yonalishlari/${userId}/`}>{coursewithid.name_uz} to'garagi</Link></p> 
+            <p><Link to={'/'}>Ta'lim yo'nalishlari</Link> {`>`} <Link to={`/talim-yonalishlari/${userId}/`}>{coursewithid.nameUZ} to'garagi</Link></p> 
           </div>
-          <h1>{coursewithid.name_uz}</h1>
+          <h1>{coursewithid.nameUZ}</h1>
           <img src={coursewithid.image} alt='' />
           <div className={style.newspagetext}>
             <p>
-              {coursewithid.description_uz}
+              {coursewithid.descriptionUZ}
             </p>
           </div>
           <div className='back'>
@@ -66,20 +71,22 @@ const Course = () => {
           <div className={style.change_course}>
             {
               course.map((item, key) => 
-                (
-                  <div key={key} onClick={() => setCourseId(item.id)} >
+              (
+                <div key={key} onClick={() => setCourseId(item.id)} >
                     <Link  to={`/talim-yonalishlari/${item.id}/`}>
-                      <Button>{item.name_uz}</Button>
+                      <Button>{item.nameUZ}</Button>
                     </Link>
                   </div>
                 )
-              )
-            }
+                )
+              }
           </div>
         </div>
       </div>
           <Links />
-    </div>
+    </div>    
+    <Footer />
+    </>
   )
 }
 

@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 import Links from '../news/newspage/Links'
 import i18n from '../../locale/i18next'
 import { useTranslation } from "react-i18next";
+import Footer from '../footer/Footer'
+import Navbar from '../../helps/navbar/Navbar'
 
 
 const VideoGallery = () => {
@@ -24,8 +26,8 @@ const VideoGallery = () => {
   }, [i18n.language]);
 
   const getVideos = () => {
-    getData('video_gallery').then(res => {
-      setVideos(res.data)
+    getData('videos').then(res => {
+      setVideos(res.data.data)
       console.log(res.data)
     })
   }
@@ -35,6 +37,8 @@ const VideoGallery = () => {
   }, []);
 
   return (
+    <>
+    <Navbar/>
     <div className={style.container}>
       <div className={style.gallery}>
         <div style={{display: 'flex'}}>
@@ -50,25 +54,19 @@ const VideoGallery = () => {
                   <Link to={`/axborot-xizmati/videogalereya/${item.id}/`}>
                     <div className={style.galleryCard}>
                       <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}}>
-                        <ReactPlayer
-                          url={item.video1}
-                          width="368px"
-                          height="200px"
-                          controls
-                          volume={false}
-                        />
+                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${item.url}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                       </div>
                       <div className={style.galleryText}>
                         <div style={{display: 'flex', alignItems: 'center', marginBottom: '14px'}}>
                           <img src={img} alt='' />
-                          <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
+                          <p>{format(item.createdAt == null ? new Date() : new Date(item.createdAt), "dd MMM, yyyy")}</p>
                         </div>
                         <h1>{
                           lang == "uz" 
-                          ? item.name_uz 
+                          ? item.titleUZ 
                           : lang == "ru" 
-                          ? item.name_ru 
-                          : item.name_en
+                          ? item.titleRU
+                          : item.titleEN
                         }</h1>
                       </div>
                     </div>
@@ -86,6 +84,8 @@ const VideoGallery = () => {
         <Links />
       </div>
     </div>
+      <Footer />
+    </>
   )
 }
 

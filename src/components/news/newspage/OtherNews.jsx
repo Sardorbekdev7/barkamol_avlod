@@ -23,13 +23,14 @@ const OtherNews = () => {
 
   const getNewData = () =>{
     getDataId('news', newsId).then(res => {
-      setNew(res.data)
+      setNew(res.data.data)
     })
   }
 
   const getDatas = () => {
     getData('news').then(res => {
-      setNews(res.data)
+      setNews(res.data.data)
+      console.log(res.data.data);
     })
   }
 
@@ -52,10 +53,10 @@ const OtherNews = () => {
                 </div>
                 <p>{
                       lang == "uz" 
-                      ? item.name_uz 
+                      ? item.titleUZ 
                       : lang == "ru" 
-                      ? item.name_ru 
-                      : item.name_en
+                      ? item.titleRU
+                      : item.titleEN
                     }
                   </p>
               </div>

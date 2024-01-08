@@ -15,18 +15,25 @@ import Photos from './components/photos/Photos'
 import VideoGallery from './components/videogallery/VideoGallery'
 import Videos from './components/videos/Videos'
 import YangiliklarPage from './components/yangiliklar/YangiliklarPage'
+import Admin from './admin/admin/Admin.jsx'
+import LoginAdmin from './admin/adminlogin/AdminLogin.jsx'
+import News from './admin/components/news/News.jsx'
+
+
 const App = () => {
 
   return (
     <>    
       <Routes>
+            <Route path='/admin/*' element={<Admin />} />
+            <Route path='/login' element={<LoginAdmin />} />
             <Route path='/' element={<Homepage />} />    
             <Route path='/maktab/maktab-haqida/' element={<About />} />    
             <Route path='/maktab/rahbariyat/' element={<Bosses />} />
             <Route path='/maktab/maktab-tuzilmasi/' element={<Structure />} />
             <Route path='/yangiliklar' element={<YangiliklarPage />} />
             <Route path='/talim-yonalishlari/' element={<Edu />} />
-            <Route path={`/axborot-xizmati/yangiliklar/*`} element={<Newspage />} />
+            <Route path={`/axborot-xizmati/yangiliklar/:newsId`} element={<Newspage />} />
             <Route path={`/talim-yonalishlari/:userId`} element={<Course />} />
             <Route path={`/faoliyat/togarak-rahbarlari/`} element={<Stuffs />} />
             <Route path={`/faoliyat/boshqa-xodimlar/`} element={<OtherStuffs />} />

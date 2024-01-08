@@ -56,6 +56,18 @@
   color: #3D3D3D;
 }
 
+.course_gap{
+  margin: 5px;
+  
+}
+
+.course_gap p {
+  font-weight: bold;
+}
+
+.course_gap p:hover {
+  color: darkblue;
+}
 
 @media (max-width: 1024px) {
   .eduimg{

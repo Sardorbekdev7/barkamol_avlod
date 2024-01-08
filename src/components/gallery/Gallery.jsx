@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 import Links from '../news/newspage/Links'
 import i18n from '../../locale/i18next'
 import { useTranslation } from "react-i18next";
+import Navbar from '../../helps/navbar/Navbar'
+import Footer from '../footer/Footer'
 
 const Gallery = () => {
   const {photos, setPhotos, photo_id, setPhotoId} = useAuthStore()
@@ -23,8 +25,9 @@ const Gallery = () => {
   }, [i18n.language]);
 
   const getPhotos = () => {
-    getData('photo_gallery').then(res => {
-      setPhotos(res.data)
+    getData('photo').then(res => {
+      setPhotos(res.data.data)
+      console.log(res.data.data);
     }).catch(err => {
       console.log(err);
     })
@@ -35,6 +38,8 @@ const Gallery = () => {
   }, [photo_id]);
 
   return (
+    <>
+    <Navbar/>
     <div className={style.container}>
       <div className={style.gallery}>
         <div style={{display: 'flex'}}>
@@ -51,7 +56,7 @@ const Gallery = () => {
                     <Link  to={`/axborot-xizmati/fotogalereya/${item.id}/`}>
                       <div className={style.galleryCard}>
                         <div style={{display:'flex', alignItems: 'center', justifyContent: 'center'}}>
-                          <img src={item.image1} alt='' style={{width: '368px', height: '200px'}}/> 
+                          <img src={item.images[0].url} alt='' style={{width: '368px', height: '200px'}}/> 
                         </div>
                         <div className={style.galleryText}>
                           <div style={{display: 'flex', alignItems: 'center', marginBottom: '14px'}}>
@@ -60,10 +65,10 @@ const Gallery = () => {
                           </div>
                           <h1>{
                             lang == "uz" 
-                            ? item.name_uz 
+                            ? item.titleUZ 
                             : lang == "ru" 
-                            ? item.name_ru 
-                            : item.name_en
+                            ? item.titleRU
+                            : item.titleEN
                           }</h1>
                         </div>
                       </div>
@@ -83,6 +88,8 @@ const Gallery = () => {
         <Links />
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 

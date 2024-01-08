@@ -5,33 +5,57 @@ import insta from '../../assets/footer/insta.svg'
 import telegram from '../../assets/footer/telegram.svg'
 import facebook from '../../assets/footer/facebook.svg'
 import mail from '../../assets/footer/mail.svg'
-import name from '../../assets/footer/name.svg'
 import style from './footer.module.css'
 import { Link } from 'react-router-dom'
 import { useTranslation } from "react-i18next";
 import i18n from '../../locale/i18next'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
+import { url } from '../../service/api.service'
+import Cookies from 'universal-cookie';
 const onFinish = (values) => {
   console.log('Success:', values);
 };
 const onFinishFailed = (errorInfo) => {
   console.log('Failed:', errorInfo);
 };
-
+const cookies = new Cookies()
 const Footer = () => {
-  
+  const token = cookies.get('token');
   const [lang, setLang] = useState();
   const { t } = useTranslation();
+  const [name, setname] = useState('')
+  const [email, setemail] = useState('')
   useEffect(() => {
     setLang(i18n.language);
     
   }, [i18n.language]);
 
+  const formData = {}
+    formData['name'] = name
+    formData['email'] = email
+
+      const postSubscribe = () => {
+        axios.post(`${url}/subscribe`, formData, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          }
+      }).then((res) => {
+        getSubscribe()
+      })
+      }
+
+      const postData = () => {
+        postSubscribe()
+        setname('')
+        setemail('')
+      }
+
   return (
     <div className={style.footer}>
-      <div className='container'>
+      <div className={style.container}>
         <Row>
-          <Col lg={6} md={24}>
+          <Col lg={6} md={24} sm={24} xs={24}>
             <div className={style.footLeft}>
               <Row>
                 <Col lg={24} md={12}>
@@ -63,19 +87,17 @@ const Footer = () => {
               </Row>
             </div>
           </Col>
-          <Col lg={18} md={24}>
-            <div style={{
-
-            }} className={style.footRight}>
+          <Col lg={18} md={24} sm={24}>
+            <div className={style.footRight}>
               <div className={style.footRightForm}>
                 <Form
                   onFinish={onFinish}
                   onFinishFailed={onFinishFailed}
                   autoComplete="off"
                 >
-                  <Input label='Ism Familya' placeholder={`${t("Ismingiz...")}`} />
-                  <Input placeholder={`${t("Elektron pochta...")}`} />
-                  <Button>
+                  <Input label='Ism Familya' placeholder={`${t("Ismingiz...")}`} onChange={(e) => setname(e.target.value)} value={name} />
+                  <Input placeholder={`${t("Elektron pochta...")}`} onChange={(e) => setemail(e.target.value)} value={email}  />
+                  <Button onClick={() => postData()}>
                     {t("Obuna bo'lish")}
                   </Button>
                 </Form>

@@ -7,6 +7,8 @@ import { getData, slugify } from '../../service/api.service';
 import { Link } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import i18n from '../../locale/i18next';
+import Navbar from '../../helps/navbar/Navbar';
+import Footer from '../footer/Footer';
 
 
 const { Panel } = Collapse;
@@ -22,14 +24,15 @@ const Edu = () => {
   }, [i18n.language]);
 
   const getCategory = () => {
-    getData("categories").then(res => {
-      setCategory(res.data)
+    getData("category").then(res => {
+      setCategory(res.data.data)
     })
   }
 
   const getCourse = () => {
-    getData("courses").then(res => {
-      setCourse(res.data)
+    getData("directions").then(res => {
+      setCourse(res.data.data)
+      console.log(res);
     })
   }
 
@@ -40,6 +43,8 @@ const Edu = () => {
  
   
   return (
+    <>
+<Navbar/>
     <div className={style.edu}>
       <div className={style.eduimg}>
       </div>
@@ -56,25 +61,25 @@ const Edu = () => {
             backgroundColor: 'white',
             marginTop: '50px',
             boxShadow: 'none',
-        }}>
+          }}>
           {category.map((item, key) => (
             <Panel header={
               lang == "uz" 
-              ? item.name_uz 
+              ? item.nameUZ 
               : lang == "ru" 
-              ? item.name_ru 
-              : item.name_en
+              ? item.nameRU 
+              : item.nameEN
             } key={key}>
               {course.map((it, key) => (
-                <div key={key} onClick={() => setCourseId(it.id)}>
+                <div className={style.course_gap} key={key} onClick={() => setCourseId(it.id)}>
                   <Link  to={`/talim-yonalishlari/${it.id}/`} >
-                    <p>{item.id == it.category ? <>
+                    <p>{item.id == it.category.id ? <>
                       {
                         lang == "uz" 
-                        ? item.name_uz 
+                        ? it.nameUZ
                         : lang == "ru" 
-                        ? item.name_ru 
-                        : item.name_en
+                        ? it.nameRU 
+                        : it.nameEN
                       }
                     </> 
                      : <></>}</p>
@@ -91,6 +96,8 @@ const Edu = () => {
         </div>
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 

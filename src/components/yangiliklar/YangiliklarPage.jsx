@@ -1,17 +1,27 @@
 import { Col, Row } from 'antd'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import style from './style/style.module.css'
 import { useAuthStore } from '../../store/auth.store'
 import { getData } from '../../service/api.service'
 import clock from '../../assets/news/clock.svg'
+import Navbar from '../../helps/navbar/Navbar'
+import Footer from '../footer/Footer'
+import i18n from '../../locale/i18next'
+import { useTranslation } from "react-i18next";
 
 const YangiliklarPage = () => {
   const {news, setNews, setNewsId, newsId} = useAuthStore()
-
+  const [lang, setLang] = useState();
+  const { t } = useTranslation();
+  useEffect(() => {
+    setLang(i18n.language);
+    
+  }, [i18n.language]);
   const getNewsData = () => {
     getData('news').then(res => {
-      setNews(res.data)
+      setNews(res.data.data)
+      console.log(res.data.data)
     })
   }
 
@@ -20,6 +30,8 @@ const YangiliklarPage = () => {
   }, []);
 
   return (
+    <>
+    <Navbar/>
     <div className={style.container} style={{
       marginTop: '90px'
     }}>
@@ -32,17 +44,29 @@ const YangiliklarPage = () => {
           <Col key={key} lg={8} md={12} sm={24}>
             <div className={style.newscards}>
               <div className={style.newscardimg}>
-                <p>{item.media_type == 'News' ? 'Yangiliklar' : item.media_type}</p>
+                <p>{
+                    lang == "uz" 
+                    ? item.subTitleUZ
+                    : lang == "ru" 
+                    ? item.subTitleRU
+                    : item.subTitleEN
+                  }</p>
                 <Link onClick={() => setNewsId(item.id)} to={`/axborot-xizmati/yangiliklar/${item.id}/`}>
-                  {item.photo == null ? <img src='https://www.freeiconspng.com/uploads/no-image-icon-6.png' alt="rasm yo'q" style={{borderRadius: "15px", width: '368px', height: '200px'}}  /> : <img src={item.photo} alt=''  style={{borderRadius: "15px", width: '368px', height: '200px'}} /> }
+                  {item.image == null ? <img src='https://www.freeiconspng.com/uploads/no-image-icon-6.png' alt="rasm yo'q" style={{borderRadius: "15px", width: '368px', height: '200px'}}  /> : <img src={item.image} alt=''  style={{borderRadius: "15px", width: '368px', height: '200px'}} /> }
                 </Link>
               </div>
               <div className={style.newscardtext}>
                 <div className={style.newscardtime}>
                   <img src={clock} alt='' />
-                  <span>03.02.2023</span>
+                  <span>{item.createdAt.slice(0, 10)}</span>
                 </div>
-                <p>{item.name_uz}</p>
+                <p>{
+                          lang == "uz" 
+                          ? item.titleUZ
+                          : lang == "ru" 
+                          ? item.titleRU 
+                          : item.titleEN
+                        }</p>
               </div>
             </div>
           </Col>
@@ -53,6 +77,8 @@ const YangiliklarPage = () => {
           <Link to={'/'}>Ortga</Link>
       </div>
     </div>
+      <Footer />
+    </>
   )
 }
 

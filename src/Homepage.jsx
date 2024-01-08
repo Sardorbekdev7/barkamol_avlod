@@ -5,16 +5,20 @@ import News from './components/news/News'
 import Stat from './components/stat/Stat'
 import Sponsor from './components/sponsors/Sponsor'
 import Navigat from './components/header/Navigat'
+import Navbar from './helps/navbar/Navbar'
+import Footer from './components/footer/Footer'
 
 const Homepage = () => {
   return (
     <div>
+      <Navbar />
             <Navigat />  
             <HomeHeader />
             <Courses />   
             <News />   
             <Stat />   
             <Sponsor />  
+      <Footer />
     </div>
   )
 }

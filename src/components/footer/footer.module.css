@@ -9,7 +9,7 @@
 }
 
 .footBrand {
-  /* margin-bottom: 40px; */
+  margin-bottom: 40px;
   width: 58px;
 }
 
@@ -93,7 +93,6 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  
   font-size: 14px;
   line-height: 14px;
   color: #FFFFFF;
@@ -155,8 +154,6 @@
 }
 
 @media (max-width: 768px) {
- 
-
   .footRightForm {
     height: auto !important;
   }

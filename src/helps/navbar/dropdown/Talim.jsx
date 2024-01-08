@@ -20,8 +20,9 @@ const Talim  = () => {
   const [lang, setLang] = useState();
 
   const getCat = () => {
-    getData('categories').then(res => {
-      setCategory(res.data)
+    getData('category').then(res => {
+      setCategory(res.data.data)
+      console.log(res.data.data);
     })
   }
 
@@ -43,10 +44,10 @@ const Talim  = () => {
         label: (
         <Link to={'/talim-yonalishlari/'}>{
           lang == "uz" 
-          ? item.name_uz 
+          ? item.nameUZ 
           : lang == "ru" 
-          ? item.name_ru 
-          : item.name_en
+          ? item.nameRU 
+          : item.nameEN
         }</Link>
         )
       }

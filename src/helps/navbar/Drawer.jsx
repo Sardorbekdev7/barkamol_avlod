@@ -40,8 +40,8 @@ const DrawerBarkamol = () => {
 
 
   const getCat = () => {
-    getData('categories').then(res => {
-      setCategory(res.data)
+    getData('category').then(res => {
+      setCategory(res.data.data)
     })
   }
 
@@ -56,10 +56,10 @@ const DrawerBarkamol = () => {
     talim.push(
         getItem(<Link to="/talim-yonalishlari/"><p>{
           lang == "uz" 
-          ? item.name_uz 
+          ? item.nameUZ 
           : lang == "ru" 
-          ? item.name_ru 
-          : item.name_en
+          ? item.nameRU 
+          : item.nameEN
         }</p></Link>, key + 20)
       )
   })

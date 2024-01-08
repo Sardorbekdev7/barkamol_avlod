@@ -6,7 +6,7 @@ export const useAuthStore = create(set => ({
   setNews: (news) => set(state => ({...state, news: news})),
   new_id: {},
   setNew: (new_id) => set(state => ({...state, new_id: new_id})),
-  newsId: 1,
+  newsId: '1',
   setNewsId: (id) => set(state => ({...state, newsId: id})),
 
   sponsor: [],

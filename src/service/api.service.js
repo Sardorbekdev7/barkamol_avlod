@@ -1,13 +1,17 @@
 import axios from "axios"
+export const url = 'https://barkamol-avlod-tago.onrender.com/api/v1'
+// export const url = 'http://192.168.1.108:9099/api/v1'
 
-const url = 'https://admin.toshbabm.uz/api'
+export const getData=(a)=>{
+  return(axios.get(`${url}/${a}`))
+}
 
-export const getData=(token)=>{
-  return(axios.get(`${url}/${token}/`))
+export const postData=(a)=>{
+  return(axios.post(`${url}/${a}`))
 }
 
 export const getDataId = (token, id) => {
-  return(axios.get(`${url}/${token}/${id}/`))
+  return(axios.get(`${url}/${token}/${id}`))
 }
 
 

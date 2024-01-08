@@ -10,6 +10,8 @@ import { getData } from '../../../service/api.service'
 import { Link } from 'react-router-dom'
 import i18n from '../../../locale/i18next'
 import { useTranslation } from "react-i18next";
+import Navbar from '../../../helps/navbar/Navbar'
+import Footer from '../../footer/Footer'
 
 const Bosses = () => {
   const { leaders, setLeaders } = useAuthStore()
@@ -21,8 +23,9 @@ const Bosses = () => {
   }, [i18n.language]);
 
   const getLeaders = () => {
-    getData('course_owners').then(res => {
-      setLeaders(res.data)
+    getData('employee').then(res => {
+      setLeaders(res.data.data)
+      console.log(res.data.data)
     })
   }
 
@@ -32,76 +35,98 @@ const Bosses = () => {
 
 
   return (
+    <>
+    <Navbar/>
     <div className={style.bosses}>
       <div className={style.bosseslink}>
         <Link to={'/'}>{t("maktab")}</Link><p>{' > '}</p><Link to={'/maktab/rahbariyat/'}>{t("Rahbariyat")}</Link>
       </div>
       <div>
           {
-            leaders.slice(0, 1).map((item, key) => (
-              <Row key={key}>
-              <Col style={{display: 'flex', alignItems: "center", justifyContent: "center"}} lg={12} md={12} sm={24}>
-                <div className={style.bosscard}>
-                  <img className={style.bossimg} src={item.image} alt='' />
-                </div>
-              </Col>
-              <Col lg={12} md={12} sm={24}>
-                <div className={style.bosscard}>
-                  <div className={style.boss}>
-                    <h1>{
-                      lang == "uz" 
-                      ? item.name_uz 
-                      : lang == "ru" 
-                      ? item.name_ru 
-                      : item.name_en
-                    }</h1>
-                    <p>{
-                      lang == "uz" 
-                      ? item.position_uz 
-                      : lang == "ru" 
-                      ? item.position_ru 
-                      : item.position_en
-                    }</p>
-                    <div className={style.bossConnect}>
-                      <a href={`tel:${item.phone}`}>{t("Telefon raqami:")} {item.phone}</a>
-                      <br />
-                      <a href={`mailto:${item.email}`}>{t("E-mail:")} {item.email}</a>
+            leaders.slice(0, 1).map((item, key) => {
+              if(item.role == 'rahbariyat'){
+                return (
+                  <Row key={key}>
+                  <Col style={{display: 'flex', alignItems: "center", justifyContent: "center"}} lg={12} md={12} sm={24}>
+                    <div className={style.bosscard}>
+                      <img className={style.bossimg} src={item.image} alt='' />
                     </div>
-                    <div>
-                      <a href={'https://www.facebook.com/tosh_babm'} target='blank'>
-                        <img src={facebook} alt='' />
-                      </a>
-                      <a href="https://www.instagram.com/toshbabm" target='blank'>
-                        <img src={instagram} alt='' />
-                      </a>
-                      <a href="https://t.me/toshkent_babm" target='blank'>
-                        <img src={telegram} alt='' />
-                      </a>
+                  </Col>
+                  <Col lg={12} md={12} sm={24}>
+                    <div className={style.bosscard}>
+                      <div className={style.boss}>
+                        <h1>{
+                          lang == "uz" 
+                          ? item.nameUZ
+                          : lang == "ru" 
+                          ? item.nameRU 
+                          : item.nameEN
+                        }</h1>
+                        <p>{
+                          lang == "uz" 
+                          ? item.positionUZ
+                          : lang == "ru" 
+                          ? item.positionRU 
+                          : item.positionEN
+                        }</p>
+                        <div className={style.bossConnect}>
+                          <a href={`tel:${item.phoneNumber}`}>{t("Telefon raqami:")} {item.phoneNumber}</a>
+                          <br />
+                          <a href={`mailto:${item.email}`}>{t("E-mail:")} {item.email}</a>
+                        </div>
+                        <div>
+                          <a href={'https://www.facebook.com/tosh_babm'} target='blank'>
+                            <img src={facebook} alt='' />
+                          </a>
+                          <a href="https://www.instagram.com/toshbabm" target='blank'>
+                            <img src={instagram} alt='' />
+                          </a>
+                          <a href="https://t.me/toshkent_babm" target='blank'>
+                            <img src={telegram} alt='' />
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </Col>
-              </Row>
-            ))
+                  </Col>
+                  </Row>
+                )
+              }
+            } )
           }
           <Row>
           {
-            leaders.slice(1).map((item, key) => (
-              <Col key={key} lg={6} md={12} sm={24}>
-                <div className={style.bosscard}>
-                  <img className={style.bossimg} src={item.image} alt={item.name_uz} />
-                  <div className={style.bossText}>
-                    <h1>{item.name_uz}</h1>
-                    <p>{item.position_uz}</p>
-                    <div className={style.bossConnect}>
-                      <a href={`tel:${item.phone}`}>{t("Telefon raqami:")} {item.phone}</a>
-                      <br />
-                      <a href={`mailto:${item.email}`}>{t("mail")} {item.email}</a>
+            leaders.slice(1).map((item, key) => {
+              if(item.role == 'rahbariyat'){
+                return (
+                  <Col key={key} lg={6} md={12} sm={24}>
+                    <div className={style.bosscard}>
+                      <img className={style.bossimg} src={item.image} alt={item.nameUZ} />
+                      <div className={style.bossText}>
+                        <h1>{
+                          lang == "uz" 
+                          ? item.nameUZ
+                          : lang == "ru" 
+                          ? item.nameRU 
+                          : item.nameEN
+                        }</h1>
+                        <p>{
+                          lang == "uz" 
+                          ? item.positionUZ
+                          : lang == "ru" 
+                          ? item.positionRU 
+                          : item.positionEN
+                        }</p>
+                        <div className={style.bossConnect}>
+                          <a href={`tel:${item.phoneNumber}`}>{t("Telefon raqami:")} {item.phoneNumber}</a>
+                          <br />
+                          <a href={`mailto:${item.email}`}>{t("mail")} {item.email}</a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </Col>
-            ))
+                  </Col>
+                )
+              }
+            })
           }
           </Row>
       </div>
@@ -109,6 +134,8 @@ const Bosses = () => {
           <Link to={'/'}>{t("Ortga")}</Link>
       </div>
     </div>
+    <Footer />
+   </>
   )
 }
 

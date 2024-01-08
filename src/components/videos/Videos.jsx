@@ -10,6 +10,8 @@ import Links from '../news/newspage/Links'
 import { format } from 'date-fns'
 import i18n from '../../locale/i18next'
 import { useTranslation } from "react-i18next";
+import Navbar from '../../helps/navbar/Navbar'
+import Footer from '../footer/Footer'
 
 const Videos = () => {
   const {video_id, setVideoId, video, setVideo, setVideos, videos} = useAuthStore()
@@ -25,14 +27,14 @@ const Videos = () => {
   }, [i18n.language]);
 
   const getVideo = () => {
-    getDataId('video_gallery', id).then(res => {
-      setVideo(res.data)
+    getDataId('videos', String(id)).then(res => {
+      setVideo(res.data.data)
     })
   }
 
   const getVideos = () => {
-    getData('video_gallery').then(res => {
-      setVideos(res.data)
+    getData('videos').then(res => {
+      setVideos(res.data.data)
     })
   }
 
@@ -44,6 +46,8 @@ const Videos = () => {
  
 
   return (
+    <>
+    <Navbar/>
     <div className={style.container}>
       <div style={{display: "flex", width: "100%"}}>
         <div className={style.photos}>
@@ -53,24 +57,19 @@ const Videos = () => {
             </div>
             <div>
               <h1>{
-                      lang == "uz" 
-                      ? video.name_uz 
-                      : lang == "ru" 
-                      ? video.name_ru 
-                      : video.name_en
-                    }</h1>
+                lang == "uz" 
+                ? video.nameUZ 
+                : lang == "ru" 
+                ? video.nameRU 
+                : video.nameEN
+              }</h1>
               <div style={{display: 'flex', alignItems: 'center'}}>
                 <img src={img} alt='' />
                 <p>{format(video.date == null ? new Date() : new Date(video.date), "dd MMM, yyyy")}</p>
               </div>
               <div>
                   <div className={style.photosImg} style={{margin: '15px 0', gap: '5px'}}>
-                    {video.video1 && <ReactPlayer style={{margin: '5px 0'}} url={video.video1} width="100%" controls />}
-                    {video.video2 && <ReactPlayer style={{margin: '5px 0'}} url={video.video2} width="100%" controls />}
-                    {video.video3 && <ReactPlayer style={{margin: '5px 0'}} url={video.video3} width="100%" controls />}
-                    {video.video4 && <ReactPlayer style={{margin: '5px 0'}} url={video.video4} width="100%" controls />}
-                    {video.video5 && <ReactPlayer style={{margin: '5px 0'}} url={video.video5} width="100%" controls />}
-                    {video.video6 && <ReactPlayer style={{margin: '5px 0'}} url={video.video6} width="100%" controls />}
+                    <iframe width="560" height="315" src={`https://www.youtube.com/embed/${video.url}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                   </div>
               </div>
             </div>
@@ -80,24 +79,19 @@ const Videos = () => {
           {videos.slice(0, 10).map((item, key) => (
             <div key={key} style={{margin: "16px"}}>
               <Link  to={`/axborot-xizmati/videogalereya/${item.id}/`}> {/*onClick={() => setVideoId(item.id)}*/}
-                <ReactPlayer
-                  url={item.video1}
-                  width="338px"
-                  height="200px"
-                  volume={false}
-                />
+                <iframe width={'100%'} height={'250px'} src={`https://www.youtube.com/embed/${item.url}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </Link>
               <div style={{display: "flex", alignItems: "center", marginTop: '14px'}}>
                 <img src={img} alt='' />
                 <p>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</p>
               </div>
               <h1 style={{margin: '14px 0'}}>{
-                      lang == "uz" 
-                      ? item.name_uz 
-                      : lang == "ru" 
-                      ? item.name_ru 
-                      : item.name_en
-                    }</h1>
+                lang == "uz" 
+                ? item.nameUZ 
+                : lang == "ru" 
+                ? item.nameRU 
+                : item.nameEN
+              }</h1>
             </div>
           ))}
         </div>
@@ -109,6 +103,8 @@ const Videos = () => {
         <Links />
       </div>
     </div>
+    <Footer />
+    </>
   )
 }
 

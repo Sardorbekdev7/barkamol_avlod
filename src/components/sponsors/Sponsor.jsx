@@ -18,7 +18,8 @@ const Sponsor = () => {
   }, [i18n.language]);
   const getSponsor = () => {
     getData('partners').then(res => {
-      setSponsor(res.data)
+      setSponsor(res.data.data)
+      console.log(res.data.data);
     })
   }
 
@@ -64,10 +65,10 @@ const Sponsor = () => {
               </div>
               <p>{
                 lang == "uz" 
-                ? item.name_uz 
+                ? item.nameUZ
                 : lang == "ru" 
-                ? item.name_ru 
-                : item.name_en
+                ? item.nameRU  
+                : item.nameEN
               }</p>
             </div>
           ))}
