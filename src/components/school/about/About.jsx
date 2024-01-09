@@ -49,7 +49,11 @@ export const About = () => {
               : lang == "ru"
                 ? about?.titleRU
                 : about?.titleEN}</h1>
-            <p>{about?.descriptionUZ}</p>
+            <p>{lang == "uz"
+              ? about?.descriptionUZ
+              : lang == "ru"
+                ? about?.descriptionRU
+                : about?.descriptionEN}</p>   
           </div>
         </div>
         <div className='back'>

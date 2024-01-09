@@ -148,7 +148,6 @@ const Photos = ()=>{
                 <p>Rasm</p>
                 <input type="file" multiple name="" id="" onChange={handleChange} />
                 {element.map((item, key) => ReactDOM.render(item))}
-                <Button onClick={() => addElement()}>+</Button>
             </Col>
         </Row>
        </Modal>
