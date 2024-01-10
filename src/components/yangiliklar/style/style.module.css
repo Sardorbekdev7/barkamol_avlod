@@ -41,7 +41,9 @@
 }
 
 .newscardimg {
+  width: 100%;
   display: flex;
+  padding: 0 auto;
   align-items: center;
   justify-content: center;
 }
@@ -66,10 +68,16 @@
   z-index: 5;
 }
 
+.newscardimg a {
+  width: 100%;
+  display: flex;
+  padding: auto;
+}
+
 .newscardimg img {
   width: auto;
   height: auto;
-  height: 200px;
+  /* height: 200px; */
   overflow: hidden;
   z-index: -1;
 }

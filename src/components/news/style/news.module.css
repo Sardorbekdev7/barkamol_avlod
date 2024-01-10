@@ -66,10 +66,14 @@
   z-index: 5;
 }
 
-.newscardimg img {
+.newscardimg a {
   width: 100%;
+}
+
+.newscardimg img {
+  width: 100% !important;
   height: auto;
-  height: 200px;
+  /* height: 200px; */
   overflow: hidden;
   z-index: -1;
 }

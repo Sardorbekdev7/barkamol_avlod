@@ -40,7 +40,7 @@ const News = () => {
       </div>
       <Row>
         {news.slice(0, 6).map((item, key) => (
-          <Col key={key} lg={8} md={12} sm={24}>
+          <Col key={key} lg={6} md={12} sm={24}>
             <div className={style.newscards}>
               <div className={style.newscardimg}>
                 <p>{
