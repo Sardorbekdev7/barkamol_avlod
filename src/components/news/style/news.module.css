@@ -67,7 +67,7 @@
 }
 
 .newscardimg img {
-  width: auto;
+  width: 100%;
   height: auto;
   height: 200px;
   overflow: hidden;

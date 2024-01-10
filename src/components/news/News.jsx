@@ -43,7 +43,13 @@ const News = () => {
           <Col key={key} lg={8} md={12} sm={24}>
             <div className={style.newscards}>
               <div className={style.newscardimg}>
-                <p>{item.titleUZ}</p>
+                <p>{
+                      lang == "uz" 
+                      ? item.subTitleUZ
+                      : lang == "ru" 
+                      ? item.subTitleRU
+                      : item.subTitleEN
+                    }</p>
                 <Link onClick={() => setNewsId(item.id)} to={`/axborot-xizmati/yangiliklar/${item.id}/`}>
                   {item.image == null ? <img src='https://www.freeiconspng.com/uploads/no-image-icon-6.png' alt="rasm yo'q" style={{borderRadius: "15px", width: '368px', height: '200px'}}  /> : <img src={item.image} alt=''  style={{borderRadius: "15px", width: '368px', height: '200px'}} /> }
                 </Link>
@@ -51,15 +57,15 @@ const News = () => {
               <div className={style.newscardtext}>
                 <div className={style.newscardtime}>
                   <img src={clock} alt='' />
-                  <span>{format(item.date == null ? new Date() : new Date(item.date), "dd MMM, yyyy")}</span>
+                  <span>{format(item.createdAt == null ? new Date() : new Date(item.createdAt), "dd MMM, yyyy")}</span>
                 </div>
                 <p>{
-                  lang == "uz" 
-                  ? item.subTitleUZ 
-                  : lang == "ru" 
-                  ? item.subTitleRU
-                  : item.subTitleEN
-                }</p>
+                          lang == "uz" 
+                          ? item.titleUZ
+                          : lang == "ru" 
+                          ? item.titleRU 
+                          : item.titleEN
+                        }</p>
               </div>
             </div>
           </Col>
