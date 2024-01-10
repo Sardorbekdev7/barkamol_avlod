@@ -49,13 +49,11 @@ const Statistics = ()=>{
     //   const getStatistics = async () => {
     //     const response = await getData('statistics').then((res => {
     //         setStatistics(res.data.data)
-    //         console.log(res.data.data)
     //     }))
     //   }
       const getStatistics = () => {
         axios(`${url}/statistics`).then((res) => {
             setStatistics(res.data.data)
-          console.log(res.data.data);
         })
       }
 

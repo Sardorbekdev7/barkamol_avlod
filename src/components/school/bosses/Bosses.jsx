@@ -25,7 +25,6 @@ const Bosses = () => {
   const getLeaders = () => {
     getData('employee').then(res => {
       setLeaders(res.data.data)
-      console.log(res.data.data)
     })
   }
 

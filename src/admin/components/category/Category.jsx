@@ -47,7 +47,6 @@ const Category = ()=>{
       const getCategory = async () => {
         const response = await getData('category').then((res => {
             setCategory(res.data.data)
-            console.log(res.data.data)
         }))
       }
       const deleteAbout = (id) => {

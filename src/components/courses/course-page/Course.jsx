@@ -22,7 +22,6 @@ const Course = () => {
   const getCourse = () => {
     axios.get(url + `/directions/by-id/${userId}`).then(res => {
       setCoursewithid(res.data.data)
-      console.log(res);
     })
   }
   
@@ -33,7 +32,6 @@ const Course = () => {
   }
   
   useEffect(() => {
-    console.log(userId);
   }, [])
   
   useEffect(() => {

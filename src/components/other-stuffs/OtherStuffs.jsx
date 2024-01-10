@@ -23,13 +23,11 @@ const OtherStuffs = () => {
   // const getStuffLeader = () => {
   //   getData('leaders').then(res => {
   //     setStuffLeader(res.data)
-  //     console.log(res.data)
   //   })
   // }
   const getStuffLeader = () => {
     getData('employee').then(res => {
       setStuffLeader(res.data.data)
-      console.log(res.data)
     })
   }
 

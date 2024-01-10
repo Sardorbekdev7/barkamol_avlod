@@ -54,7 +54,6 @@ const News = ()=>{
     formData.append('descriptionRU', descriptionRu)
     formData.append('descriptionEN', descriptionEn)
 
-    console.log(titleUz, subTitleUZ, descriptionUZ);
 
       const postNews = () => {
         axios.post(`${url}/news`, formData, {
@@ -124,6 +123,7 @@ const News = ()=>{
                         <th>Rasm</th>
                         <th>Qisqa izoh</th>
                         <th>Izoh</th>
+                        <th>Tahrirlash</th>
                         <th>O'chirish</th>
                     </tr>
                 </thead>
@@ -134,7 +134,8 @@ const News = ()=>{
                             <td>{item.titleUZ}</td>
                             <td><Image src={item.image} width={100} height={100} /></td>
                             <td>{item.subTitleUZ }</td>
-                            <td>{item.descriptionUZ}</td>=
+                            <td>{item.descriptionUZ}</td>
+                            <td><Button>Tahrirlash</Button></td>
                             <td><Button danger onClick={() => deleteNews(item.id)} >O'chirish</Button></td>
                         </tr>
                     )): <></>}

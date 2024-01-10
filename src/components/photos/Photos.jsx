@@ -26,7 +26,6 @@ const Photos = () => {
   const getPhoto = () => {
     getDataId('photo', String(id)).then(res => {
       setPhoto(res.data.data)
-      console.log(res.data.data);
     })
   }
 

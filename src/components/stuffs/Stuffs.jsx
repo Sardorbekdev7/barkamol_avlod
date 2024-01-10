@@ -23,7 +23,6 @@ const Stuffs = () => {
   const getStuffLeader = () => {
     getData('employee').then(res => {
       setStuffLeader(res.data.data)
-      console.log(res.data)
     })
   }
 

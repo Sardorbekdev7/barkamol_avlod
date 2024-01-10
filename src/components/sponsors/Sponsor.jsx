@@ -19,7 +19,6 @@ const Sponsor = () => {
   const getSponsor = () => {
     getData('partners').then(res => {
       setSponsor(res.data.data)
-      console.log(res.data.data);
     })
   }
 

@@ -28,7 +28,6 @@ const VideoGallery = () => {
   const getVideos = () => {
     getData('videos').then(res => {
       setVideos(res.data.data)
-      console.log(res.data)
     })
   }
 

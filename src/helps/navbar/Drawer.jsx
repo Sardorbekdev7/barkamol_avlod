@@ -81,6 +81,7 @@ const DrawerBarkamol = () => {
       getItem(<Link to="/faoliyat/togarak-rahbarlari/"><p>{t("To'garak boshliqlari")}</p></Link>, '16'),
       getItem(<Link to="/faoliyat/boshqa-xodimlar/"><p>{t("Boshqa xodimlar")}</p></Link>, '12')
     ]),
+    getItem(<Link to='/yangiliklar'><p>{t("Yangiliklar")}</p></Link>, '20'),
     getItem(<p>{t("Axborot xizmatlari")}</p>, 'sub5', <></>, [
       getItem(<Link to="/axborot-xizmati/fotogalereya/"><p>{t("Galereya")}</p></Link>, '13'),
       getItem(<Link to="/axborot-xizmati/videogalereya/"><p>{t("Videogalereya")}</p></Link>, '14')

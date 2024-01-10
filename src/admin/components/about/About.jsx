@@ -47,7 +47,6 @@ const About = ()=>{
       const getAbout = async () => {
         const response = await getData('about').then((res => {
             setAbout(res.data.data)
-            console.log(res.data.data)
         }))
       }
       const deleteAbout = (id) => {
@@ -90,14 +89,18 @@ const About = ()=>{
                     <tr style={{backgroundColor: 'gray'}}>
                         <th>N</th>
                         <th>Title uz</th>
+                        <th>Title Ru</th>
                         <th>Izoh uz</th>
+                        <th>Izoh ru</th>
                     </tr>
                 </thead>
                 <tbody>
                         <tr style={{border: 'gray 1px solid'}}>
                             <td>1</td>
                             <td>{about?.titleUZ}</td>
+                            <td>{about?.titleRU}</td>
                             <td>{about?.descriptionUZ}</td>
+                            <td>{about?.descriptionRU}</td>
                         </tr>
                 </tbody>
             </table>

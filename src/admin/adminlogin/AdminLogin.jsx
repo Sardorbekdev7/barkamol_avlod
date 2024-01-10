@@ -18,7 +18,6 @@ const AdminLogin = () => {
   const LoginAdmin = () => {
     axios.post(`${url}/admin/login`, {username, password}).then((res) => {
       const  data  = res.data.data
-      console.log(res.data);
                 if (data) {
                     cookies.set('token', res.data.data)
                     navigate('/admin')

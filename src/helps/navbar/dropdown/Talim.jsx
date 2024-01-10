@@ -22,7 +22,6 @@ const Talim  = () => {
   const getCat = () => {
     getData('category').then(res => {
       setCategory(res.data.data)
-      console.log(res.data.data);
     })
   }
 

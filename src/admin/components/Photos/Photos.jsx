@@ -25,7 +25,6 @@ const Photos = ()=>{
         images: ""
     })
     const handleChange = (e)=>{
-        console.log(e.target.files);
         for(let imageFile of e.target.files){
             formData.append('images', imageFile)
         }
@@ -33,7 +32,7 @@ const Photos = ()=>{
     let element = []
     const addElement = () => {
         element.push(createElement('input', {type: 'file'}))
-        console.log(element);
+        
     }
 
     const formData = new FormData()

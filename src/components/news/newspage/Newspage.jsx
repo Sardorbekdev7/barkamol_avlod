@@ -20,13 +20,11 @@ const Newspage = () => {
   const {news, setNews, setNewsId,  setNew, new_id} = useAuthStore()
   useEffect(() => {
     setLang(i18n.language);
-    console.log(newsId);
   }, [i18n.language]);
 
   const getNewData = async () =>{
     const res = await getDataId('news', String(newsId)).then(res => {
       setNew(res.data.data)
-      console.log(res.data.data);
     })
   }
 
@@ -39,7 +37,6 @@ const Newspage = () => {
   useEffect(() => {
     getNewData()
     getDatas()
-    console.log(new_id);
   }, [newsId]);
 
 

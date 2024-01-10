@@ -14,10 +14,10 @@ import axios from 'axios'
 import { url } from '../../service/api.service'
 import Cookies from 'universal-cookie';
 const onFinish = (values) => {
-  console.log('Success:', values);
+  nameEN('Success:', values);
 };
 const onFinishFailed = (errorInfo) => {
-  console.log('Failed:', errorInfo);
+  nameEN('Failed:', errorInfo);
 };
 const cookies = new Cookies()
 const Footer = () => {

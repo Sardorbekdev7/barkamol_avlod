@@ -21,7 +21,6 @@ export const About = () => {
   const getAbout = async () => {
     const response = await getData('about').then(res => {
       setAbout(res.data.data)
-      console.log(res);
     }).catch(err => {
       console.log(err)
     })
@@ -30,8 +29,6 @@ export const About = () => {
   useEffect(() => {
     getAbout()
   }, [])
-
-  console.log(about);
 
   return (
     <>

@@ -15,7 +15,6 @@ const Stat = () => {
   const getStat = () => {
     getData('statistics').then((res) => {
       setStat(res.data.data)
-      console.log(res.data.data);
     })
   }
 

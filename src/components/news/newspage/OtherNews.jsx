@@ -30,7 +30,6 @@ const OtherNews = () => {
   const getDatas = () => {
     getData('news').then(res => {
       setNews(res.data.data)
-      console.log(res.data.data);
     })
   }
 
