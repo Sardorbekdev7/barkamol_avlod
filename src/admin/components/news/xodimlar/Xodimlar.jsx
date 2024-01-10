@@ -119,8 +119,8 @@ const Xodimlar = ()=>{
        <>
         <div>
             <div className="create-employee" style={{display: 'flex', justifyContent: 'space-between', marginBottom: '10px'}} >
-            <h1>Yangiliklar sahifasi</h1>
-                <Button type="primary" onClick={() => setOpen(true)} >Yangilik qo'shish</Button>
+            <h1>Xodimlar sahifasi</h1>
+                <Button type="primary" onClick={() => setOpen(true)} >Xodim qo'shish</Button>
             </div>
             <div>
             <table style={{width: '100%', border: 'gray 1px solid'}}>

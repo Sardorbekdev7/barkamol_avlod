@@ -116,6 +116,7 @@ import Statistics from '../components/statistics/Statistics';
 import About from '../components/about/About';
 import Category from '../components/category/Category';
 import Courses from '../components/course/Course';
+import Sponsors from '../components/sponsors/Sponsors';
 
 const Admin = () => {
   const token = cookies.get('token');
@@ -133,6 +134,7 @@ const Admin = () => {
              <Route path={''} element={<News />} />
              <Route path={'xodimlar/'} element={<Xodimlar />} />
              <Route path={'videos/'} element={<Videos />} />
+             <Route path={'sponsors/'} element={<Sponsors />} />
              <Route path={'photos/'} element={<Photos />} />
              <Route path={'subscribe/'} element={<Subscribe />} />
              <Route path={'statistics/'} element={<Statistics />} />

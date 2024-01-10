@@ -46,7 +46,7 @@ export const About = () => {
               : lang == "ru"
                 ? about?.titleRU
                 : about?.titleEN}</h1>
-            <p>{lang == "uz"
+            <p style={{marginTop: '20px'}}>{lang == "uz"
               ? about?.descriptionUZ
               : lang == "ru"
                 ? about?.descriptionRU
