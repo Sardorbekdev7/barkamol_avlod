@@ -42,7 +42,7 @@ const OtherNews = () => {
   return (
     <div>
       {
-        news.slice(0, 10).map((item ,key) => (
+        news.slice(0, 10).map((item, key) => (
           <div key={key} >
             <Link to={`/axborot-xizmati/yangiliklar/${item.id}/`}>
               <div className={style.othernew}>

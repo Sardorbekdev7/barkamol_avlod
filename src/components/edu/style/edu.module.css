@@ -16,6 +16,10 @@
   max-width: 1617px;
   margin: 0px auto;
   padding: 0 100px 50px 100px;
+  /* display: flex; */
+}
+
+.edutexts {
   display: flex;
 }
 

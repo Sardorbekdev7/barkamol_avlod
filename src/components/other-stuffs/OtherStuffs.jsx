@@ -96,7 +96,7 @@ const OtherStuffs = () => {
           </div>
         </div>
       <div className='back'>
-          <Link href={'/'}>Ortga</Link>
+          <Link to={'/'}>Ortga</Link>
       </div>
       </div>
     </div>

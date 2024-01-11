@@ -81,7 +81,7 @@ const Photos = () => {
           <p>{t("Boshqa lavhalar")}</p>
           {photos.slice(0, 10).map((item, key) => (
             <div key={key} style={{margin: "16px"}}>
-              <Link  to={`/axborot-xizmati/fotogalereya/${item.id}/`}> {/*onClick={() => setPhotoId(item.id)} */}
+              <Link onClick={() => setPhotoId(item.id)}  to={`/axborot-xizmati/fotogalereya/${item.id}/`}> {/*onClick={() => setPhotoId(item.id)} */}
                 <img src={item.images[0].url} alt='' width={338} height={200} />
               </Link>
               <div style={{display: "flex", alignItems: "center"}}>
@@ -100,7 +100,7 @@ const Photos = () => {
         </div>
       </div>
       <div className='back'>
-          <Link to={'/'}>{t("Ortga")}</Link>
+          <Link to={'/axborot-xizmati/fotogalereya/'}>{t("Ortga")}</Link>
       </div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <Links />

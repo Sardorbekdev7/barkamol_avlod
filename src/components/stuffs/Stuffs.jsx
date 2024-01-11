@@ -77,7 +77,7 @@ const Stuffs = () => {
           </div>
         </div>
       <div className='back'>
-          <Link href={'/'}>{t("Ortga")}</Link>
+          <Link to={'/'} >{t("Ortga")}</Link>
       </div>
       </div>
     </div>

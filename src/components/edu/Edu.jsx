@@ -1,5 +1,5 @@
 import style from './style/edu.module.css'
-import { Collapse } from 'antd'
+import { Collapse, Row } from 'antd'
 import { useEffect, useState } from 'react'
 import OtherNews from '../news/newspage/OtherNews'
 import { useAuthStore } from '../../store/auth.store';
@@ -32,7 +32,6 @@ const Edu = () => {
   const getCourse = () => {
     getData("directions").then(res => {
       setCourse(res.data.data)
-      console.log(res);
     })
   }
 
@@ -49,7 +48,8 @@ const Edu = () => {
       <div className={style.eduimg}>
       </div>
       <div className={style.edutext}>
-        <div className={style.edutextleft}>
+        <div className={style.edutexts}>
+          <div className={style.edutextleft}>
         <Link to={'/talim-yonalishlari/'} >{t("Talim yo’nalishlari")} {'>'}</Link>
         <Collapse 
           accordion
@@ -93,6 +93,10 @@ const Edu = () => {
         <div className={style.edutextright}>
           <h2>{t("Yangiliklar")}</h2>
           <OtherNews />
+        </div>
+        </div>    
+        <div className='back'>
+            <Link to={'/'}>{t("Ortga")}</Link>
         </div>
       </div>
     </div>

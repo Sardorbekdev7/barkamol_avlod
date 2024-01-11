@@ -97,7 +97,7 @@ const Videos = () => {
         </div>
       </div>
       <div className='back'>
-          <Link to={'/'}>{t("Ortga")}</Link>
+          <Link to={'/axborot-xizmati/videogalereya/'}>{t("Ortga")}</Link>
       </div>
       <div style={{display: 'flex', justifyContent: 'center'}}>
         <Links />
